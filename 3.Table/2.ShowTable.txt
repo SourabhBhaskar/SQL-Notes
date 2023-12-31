@@ -1,0 +1,19 @@
+Listing Tables
+--------------
+    * In MySQL, you can use the SHOW TABLES statement to list all the tables in the current database. 
+    
+    * Syntax
+        SHOW TABLES;
+    +------------------+
+    | Tables_in_dbname |
+    +------------------+
+    | table1           |
+    | table2           |
+    | table3           |
+    | ...              |
+    +------------------+
+        - This command will display a list of tables in the specified database.
+        - Keep in mind that this command will only show tables for the currently selected database (your_database_name). 
+        If you want to see tables from a different database, you need to switch to that database using the USE statement.
+
+

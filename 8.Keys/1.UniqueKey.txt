@@ -1,0 +1,41 @@
+SQL Unique Key
+--------------
+    
+    * Overview
+        - Unique Key (or Unique Constraint) in SQL ensures that a column in a table does not have duplicate values, maintaining data integrity.
+        - It is an alternative to the Primary Key, offering uniqueness without the restriction of disallowing NULL values.
+        - Unique Keys can be applied to one or more columns in a table and can also function as foreign keys.
+    
+    * Features of Unique Keys
+        - Similar to a primary key, but allows NULL values.
+        - Accepts only one NULL value.
+        - Ensures uniqueness, preventing duplicate values.
+        - Can be used as a foreign key.
+        - Multiple Unique columns are allowed in a table.
+    
+    * Creating SQL Unique Key
+        - Syntax
+        CREATE TABLE CUSTOMERS (
+            ID INT NOT NULL UNIQUE KEY,
+            NAME VARCHAR(20) NOT NULL,
+            AGE INT NOT NULL,
+            ADDRESS CHAR (25),
+            SALARY DECIMAL (18, 2)
+        );
+    
+    * Multiple Unique Keys
+        - Syntax
+        CREATE TABLE BUYERS (
+            ID INT NOT NULL UNIQUE KEY,
+            NAME VARCHAR(20) NOT NULL UNIQUE KEY,
+            AGE INT NOT NULL,
+            ADDRESS CHAR (25),
+            SALARY DECIMAL (18, 2)
+        );
+
+    * Adding Unique Key to an Existing Column
+        - ALTER TABLE CUSTOMERS ADD CONSTRAINT UNIQUE_ADDRESS UNIQUE(ADDRESS);
+    
+    * Dropping an SQL Unique Key
+        - ALTER TABLE table_name DROP CONSTRAINT UNIQUE_KEY_NAME;
+

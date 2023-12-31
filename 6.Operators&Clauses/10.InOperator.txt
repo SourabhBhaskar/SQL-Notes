@@ -1,0 +1,28 @@
+SQL IN Operator
+---------------
+    
+    * Introduction
+        - The SQL IN Operator is utilized to specify multiple values or a subquery in the WHERE clause. 
+        - It returns all rows in which the specified column matches one of the values in the list. 
+        - This operator is useful when dealing with scenarios where multiple OR statements would be used to include multiple conditions in SELECT, DELETE, UPDATE, or INSERT statements.
+
+    * Syntax
+        WHERE column_name IN (value1, value2, value3, ...);
+        - Here, value1, value2, value3, ... are the values to be tested against the expression.
+        - It is same as : WHERE column_value = value1 || column_value = value2 || column_value = value3, ...;
+
+
+
+    * Using OR operator for the same condition:
+        SELECT * FROM CUSTOMERS WHERE NAME = 'Khilan' OR NAME = 'Hardik' OR NAME = 'Muffy';
+    
+
+    * Subquery with IN Operator:
+        - The SQL IN operator can be used with a subquery to return records from a single column. 
+        - The subquery is a SELECT statement that has a result set to be tested against the expression.
+        SELECT * FROM CUSTOMERS WHERE NAME IN (SELECT NAME FROM CUSTOMERS WHERE SALARY > 2000);
+    
+    * Uses:
+        - Selecting rows based on multiple values.
+        - Updating or deleting rows based on specified conditions.
+        - Utilizing subqueries to filter results dynamically.

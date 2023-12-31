@@ -1,0 +1,14 @@
+TRUNCATE TABLE
+--------------
+    * In MySQL, the TRUNCATE TABLE command is used to quickly remove all records from a table. 
+    It is a more efficient and faster operation compared to the DELETE command for removing all rows from a table.
+
+    * It Removes all rows from a table, regardless of conditions. It is a DDL (Data Definition Language) command and automatically commits the changes. 
+    It is faster than the DELETE command.
+
+    * Syntax
+        TRUNCATE TABLE table_name;
+
+    * TRUNCATE vs DELETE:
+    DELETE: Removes one or more rows from a table based on the conditions specified in a WHERE Clause. It is a DML (Data Manipulation Language) command and requires a manual COMMIT after making changes.
+

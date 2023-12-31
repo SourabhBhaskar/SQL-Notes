@@ -1,0 +1,33 @@
+
+Operator
+--------
+    * In SQL, operators are special words or characters used in the WHERE clause of a statement to perform operations 
+    like comparisons and arithmetic. They help specify conditions and connect multiple conditions in a statement.
+
+
+
+
+Types of SQL Operators
+----------------------
+    * Arithmetic Operators : Used for mathematical operations on numerical values.
+        - Addition (+) : 10 + 20 = 30
+        - Subtraction (-) : 20 - 30 = -10
+        - Multiplication (*) : 10 * 20 = 200
+        - Division (/) : 20 / 10 = 2
+        - Modulus (%) : 5 % 2 = 1
+
+    * Comparison Operators : Test whether two expressions are the same or not.
+        - Equal to (=) : 5 = 5 returns TRUE
+        - Not equal (!= or <>) : 5 != 6 returns TRUE
+        - Greater than (>), Less than (<)
+        - Greater than or equal to (>=), Less than or equal to (<=)
+
+    * Logical Operators : Test for the truth of given conditions.
+        - AND: TRUE if all conditions separated by AND are TRUE.
+        - OR: TRUE if any condition separated by OR is TRUE.
+        - NOT: Reverses the value of any other Boolean operator.
+        - LIKE: TRUE if the operand matches a pattern with wildcard.
+
+    * Operator Precedence: Specifies the sequence in which operators are evaluated.
+    Higher precedence operators are evaluated first.
+        - SELECT 20 - 3 * 5; (Multiplication evaluated first, then subtraction)

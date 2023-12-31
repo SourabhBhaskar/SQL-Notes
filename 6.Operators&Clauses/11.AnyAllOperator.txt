@@ -1,0 +1,25 @@
+SQL ANY and ALL Operators
+-------------------------
+    
+    * Introduction
+        - The SQL ANY and ALL operators are utilized to perform a comparison between a single value and a range of values returned by a subquery. 
+        - They are preceded by a standard comparison operator (e.g., >, >=, <, <=, =, <>, !=) and followed by a subquery. 
+        - The key difference is that ANY returns true if any subquery value meets the condition, while ALL returns true if all subquery values meet the condition.
+
+    * SQL ANY Operator
+        - This operator returns a TRUE, if the given condition is satisfied for any of the values in the range.
+        - Verify if any single record satisfies a required condition.
+        - Used with a subquery for complex comparisons.
+        - Simplifies complex queries.
+        - To list details of customers whose SALARY is greater than the SALARY of any customer whose AGE is 32
+            SELECT * FROM CUSTOMERS 
+            WHERE SALARY > ANY (SELECT SALARY FROM CUSTOMERS WHERE AGE = 32);
+
+    * SQL ANY Operator
+        - This operator returns a TRUE, if the given condition is satisfied for any of the values in the range.
+        - Returns all records of a SELECT statement.
+        - Useful with WHERE and HAVING clauses.
+        - Compares values against all records in the subquery.
+        - To list details of customers whose SALARY is greater than the SALARY of all customer whose AGE is 32
+            SELECT * FROM CUSTOMERS 
+            WHERE SALARY > ALL (SELECT SALARY FROM CUSTOMERS WHERE AGE = 32);

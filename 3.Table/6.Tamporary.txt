@@ -1,0 +1,39 @@
+Temporary Tables 
+----------------
+    * Definition
+        - Created to store temporary data.
+        - Supports SQL operations similar to permanent tables (e.g., CREATE, UPDATE, DELETE, INSERT, JOIN).
+        - Automatically deleted when the client session ends; can be explicitly deleted by users.
+    
+    * Lifespan
+        - Exist only during the client session.
+        - Automatic destruction in PHP scripts after script execution.
+        - Exist until the MySQL client connection is closed or manually deleted.
+
+    * Creating Temporary Tables 
+        - Syntax: CREATE TEMPORARY TABLE table_name (column1 datatype, ..., PRIMARY KEY(one or more columns));
+
+    * Inserting Data into MySQL Temporary Tables
+        -Use INSERT INTO similar to regular tables.
+
+    * Temporary tables not listed in SHOW TABLES.
+
+    * MySQL-Specific Error Handling
+        - If attempting to retrieve data after removal, MySQL generates an error.
+        SELECT * FROM CUSTOMERS;
+        - Generates: ERROR 1146: Table 'TUTORIALS.CUSTOMERS' doesn't exist
+    
+    * MySQL and SQL Server Comparison
+        - In MySQL, temporary tables are only visible within the current session.
+        - In SQL Server, both local and global temporary tables exist.
+    
+    * Local Temporary Tables in MySQL
+        - Created using a single # as the prefix.
+
+    * Global Temporary Tables in MySQL
+        - Created using ## as the prefix.
+
+    * Dropping Temporary Tables in MySQL
+        - Manual deletion using DROP TABLE with # for local and ## for global.
+        DROP TABLE #Customers;
+        DROP TABLE ##Buyers;

@@ -1,0 +1,28 @@
+SQL Primary Key
+---------------
+    
+    * Overview
+        - The SQL Primary Key uniquely identifies each record in a database table, facilitating data access and establishing relationships between tables.
+        - While a table can have only one Primary Key, it can be defined on one or more fields, forming a Composite Key.
+    
+    * Points to Remember
+        - Contains only unique values.
+        - Cannot be null.
+        - One table can have only one Primary Key.
+        - The length of a primary key cannot exceed 900 bytes.
+    
+    * Creating an SQL Primary Key
+        CREATE TABLE CUSTOMERS (
+            ID INT NOT NULL,
+            NAME VARCHAR(20) NOT NULL,
+            AGE INT NOT NULL,
+            ADDRESS CHAR(25),
+            SALARY DECIMAL(18, 2),       
+            PRIMARY KEY (ID)
+        );
+    
+    * Creating Primary Key on an Existing Column
+        ALTER TABLE CUSTOMERS ADD CONSTRAINT PRIMARY KEY(NAME);
+    
+    * Dropping an SQL Primary Key
+        ALTER TABLE CUSTOMERS DROP PRIMARY KEY;

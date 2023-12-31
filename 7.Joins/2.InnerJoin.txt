@@ -1,0 +1,35 @@
+SQL Inner Join
+--------------
+    * The SQL Inner Join combines multiple tables by retrieving records with matching values in both tables (in the common column).
+    Also known as Equijoin, it is the default join; "JOIN" and "INNER JOIN" are often used interchangeably.
+    
+    * Explanation
+        - Inner Join compares each row of the first table with each row of the second table based on the join-predicate.
+        = When the join-predicate is satisfied, column values from both tables are combined into a new table.
+    
+    * Syntax of Inner Join
+        SELECT column_name(s)
+        FROM table1
+        INNER JOIN table2
+        ON table1.column_name = table2.column_name;
+
+    * Joining Multiple Tables Using Inner Join
+        - Multiple tables can be joined sequentially using INNER JOIN.
+        - Syntax:
+            SELECT column1, column2, column3...
+            FROM table1
+            INNER JOIN table2
+            ON condition_1
+            INNER JOIN table3
+            ON condition_2
+            ...
+            INNER JOIN tableN
+            ON condition_N;
+
+    * Inner Join with WHERE Clause
+        - The WHERE clause is used to apply additional constraints on the data retrieved by Inner Join.
+        SELECT ID, NAME, DATE, AMOUNT
+        FROM CUSTOMERS
+        INNER JOIN ORDERS
+        ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID
+        WHERE ORDERS.AMOUNT > 2000.00;

@@ -1,0 +1,151 @@
+SQL Datatypes
+-------------
+    * An SQL data type refers to the type of data which can be stored in a column of a database table. 
+    For example integer data, character data, monetary data, date and time data, binary strings, and so on.
+
+    * Different RDBMS supports different type of data types to define their tables.
+
+    * Types of SQL Datatypes
+        - String        
+        - Numeric       
+        - Date and Time 
+
+
+
+
+SQL String Datatypes
+--------------------
+    * CHAR(size)
+        - Fixed-length string.
+        - Can have letters, numbers, and special characters.
+        - Size defines the length in characters (0 to 255), default is 1.
+
+    * VARCHAR(size)
+        - Variable-length string.
+        - Can contain letters, numbers, and special characters.
+        - Size is the maximum string length in characters (0 to 65535).
+
+    * BINARY(size)
+        - Similar to CHAR() but stores binary byte strings.
+        - Size defines the length in bytes, default is 1.
+
+    * VARBINARY(size)
+        - Similar to VARCHAR() but stores binary byte strings.
+        - Size is the maximum column length in bytes.
+
+    * TINYTEXT
+        - Holds a string with a maximum length of 255 characters.
+    
+    * TEXT(size)
+        - Holds a string with a maximum length of 65,535 bytes.
+    
+    * MEDIUMTEXT
+    - Holds a string with a maximum length of 16,777,215 characters.
+    
+    * LONGTEXT
+        - Holds a string with a maximum length of 4,294,967,295 characters.
+    
+    * TINYBLOB
+        - Represents a small Binary Large Object (BLOB).
+        - Maximum length is 255 bytes.
+
+    * BLOB(size)
+        - Represents a Binary Large Object (BLOB).
+        - Holds up to 65,535 bytes of data.
+    
+    * MEDIUMBLOB
+        - Represents a medium Binary Large Object (BLOB).
+        - Holds up to 16,777,215 bytes of data.
+    
+    * LONGBLOB
+        - Represents a large Binary Large Object (BLOB).
+        - Holds up to 4,294,967,295 bytes of data.
+
+    * ENUM(val1, val2, val3, ...):
+        - A string with only one value from a list.
+        - Can have up to 65535 values.
+        - Values are sorted in the order you enter them.
+
+    * SET(val1, val2, val3, ...):
+        - A string that can have 0 or more values from a list.
+        - Can have up to 64 values in a SET list.
+
+
+
+SQL Numeric Datatypes
+---------------------
+    * INT
+        - Normal-sized integer, can be signed or unsigned.
+        - Signed range: -2,147,483,648 to 2,147,483,647.
+        - Unsigned range: 0 to 4,294,967,295.
+        - Width can be specified up to 11 digits.
+    
+    * TINYINT
+        - Very small integer, can be signed or unsigned.
+        - Signed range: -128 to 127.
+        - Unsigned range: 0 to 255.
+        - Width can be specified up to 4 digits.
+    
+    * SMALLINT
+        - Small integer, can be signed or unsigned.
+        - Signed range: -32,768 to 32,767.
+        - Unsigned range: 0 to 65,535.
+        - Width can be specified up to 5 digits.
+
+    MEDIUMINT
+        - Medium-sized integer, can be signed or unsigned.
+        - Signed range: -8,388,608 to 8,388,607.
+        - Unsigned range: 0 to 16,777,215.
+        - Width can be specified up to 9 digits.
+
+    BIGINT
+        - Large integer, can be signed or unsigned.
+        - Signed range: -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.
+        - Unsigned range: 0 to 18,446,744,073,709,551,615.
+        - Width can be specified up to 20 digits.
+
+    FLOAT(M,D)
+        - Floating-point number.
+        - Display length (M) and number of decimals (D) can be defined.
+        - Defaults to 10,2 (10 total digits, 2 decimals).
+        - Precision can go up to 24 places.
+
+    DOUBLE(M,D)
+        - Double precision floating-point number.
+        - Display length (M) and number of decimals (D) can be defined.
+        - Defaults to 16,4 (16 total digits, 4 decimals).
+        - Precision can go up to 53 places.
+
+    DECIMAL(M,D)
+        - Unpacked floating-point number.
+        - Display length (M) and number of decimals (D) are required.
+        - NUMERIC is a synonym for DECIMAL.
+
+
+
+
+SQL Date & Time Datatypes
+--------------------------
+    * DATE
+        - Represents a date in YYYY-MM-DD format.
+        - Valid range: 1000-01-01 to 9999-12-31.
+        - Example: December 30, 1973, is stored as 1973-12-30.
+
+    * DATETIME
+        - Represents a date and time in YYYY-MM-DD HH:MM:SS format.
+        - Valid range: 1000-01-01 00:00:00 to 9999-12-31 23:59:59.
+        - Example: 3:30 PM on December 30, 1973, is stored as 1973-12-30 15:30:00.
+    
+    * TIMESTAMP
+        - Represents a timestamp between January 1, 1970, and sometime in 2037.
+        - Format: YYYYMMDDHHMMSS (no hyphens).
+        - Example: 3:30 PM on December 30, 1973, is stored as 19731230153000.
+    
+    * TIME
+        - Stores the time in HH:MM:SS format.
+    
+    * YEAR(M)
+        - Stores a year in a 2-digit or 4-digit format.
+        - If specified as 2 (e.g., YEAR(2)), the range is 1970 to 2069 (70 to 69).
+        - If specified as 4, the range is 1901 to 2155 (default).
+        - Example: If specified as YEAR(4), the year 2023 is stored as 2023.

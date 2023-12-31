@@ -1,0 +1,28 @@
+DELETE Command 
+-------------
+
+    * Definition
+        - Statement Type: Data Manipulation Language (DML)
+        - Purpose: Deletes data from a table without altering the table structure.
+        - Scope: Operates on a single table at a time.
+        - Effect on Table: Constraints, indexes, triggers, and table structure remain unaffected.
+    
+    * Basic Syntax
+        DELETE FROM table_name;
+    
+    * Deleting Specific Rows with WHERE Clause:
+        - Syntax : DELETE FROM table_name WHERE condition;
+
+    * Verification
+        - After the deletion, the SELECT query shows the modified table.
+    
+    * Deleting Rows Based on Multiple Conditions
+        - Syntax : DELETE FROM table_name WHERE condition1 AND/OR condition2 ... AND/OR conditionN;
+
+    * Deleting All Records in a Table
+        - DELETE FROM table_name;
+
+    * Important Notes:
+        - Caution: Deletion without WHERE clause removes all records irreversibly.
+        - Performance Impact: Deleting large datasets can be resource-intensive.
+        - Undo Capability: Deletion cannot be undone; backup data before mass deletion

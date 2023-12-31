@@ -1,0 +1,34 @@
+DROP TABLE
+----------
+
+    * Definition
+        - Statement Type: Data Definition Language (DDL)
+        - Purpose: Removes a table's definition, data, indexes, triggers, constraints, and permissions associated with the table.
+        - Caution: Irreversible action, leading to permanent loss of all table information.
+        - Permissions Required: ALTER permission on the table and CONTROL permissions on the table schema.
+    
+    * Basic Syntax
+        DROP TABLE table_name;
+
+    * Example Scenario
+        - Created a table named CUSTOMERS with specific columns and constraints using the CREATE TABLE statement.
+        - Verified the existence of the CUSTOMERS table using DESC Table.
+    
+    * Table Verification
+        DESC CUSTOMERS;
+        - Verified table existence:
+        - Resulted in an error message indicating non-existence.
+    
+    * IF EXISTS Clause
+        - Allows dropping a table only if it exists in the database.
+        - Syntax: DROP TABLE [IF EXISTS] table_name;
+        - Prevents errors if the table doesn’t exist.
+        DROP TABLE IF EXISTS CUSTOMERS;
+
+    * Output & Verification with IF EXISTS
+        - Dropping non-existent table results in query ignored.
+    
+    * DROP TEMPORARY TABLE
+        - Used to drop only temporary tables to prevent accidental deletion of non-temporary tables.
+        - Syntax: DROP TEMPORARY TABLE TEMP_TABLE;
+        DROP TEMPORARY TABLE CUSTOMERS;

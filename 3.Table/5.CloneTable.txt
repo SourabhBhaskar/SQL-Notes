@@ -1,0 +1,19 @@
+Cloning Tables
+--------------
+    * In MySQL, there are three types of cloning operations: Simple Cloning, Shallow Cloning, and Deep Cloning. 
+        1.Simple Cloning
+            - Simple cloning creates a new table with the same structure as the original table and copies all the records into the new table.
+            CREATE TABLE new_table SELECT * FROM original_table;
+
+        2.Shallow Cloning
+            - Shallow cloning creates an empty replica table with the same structure as the original table, including column attributes, indices, and AUTO_INCREMENT definition.
+            CREATE TABLE new_table LIKE original_table;
+
+        3.Deep Cloning
+            - Deep cloning combines simple cloning and shallow cloning. 
+            It creates a new table with the same structure and copies both the structure and data from the original table.
+            CREATE TABLE new_table LIKE original_table;
+            INSERT INTO new_table SELECT * FROM original_table;
+
+
+

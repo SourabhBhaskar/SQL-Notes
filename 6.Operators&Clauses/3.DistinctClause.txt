@@ -1,0 +1,35 @@
+
+SQL DISTINCT Keyword Notes
+--------------------------
+    * Overview
+        - The SQL DISTINCT keyword is used with the SELECT statement to retrieve unique records from a table.
+        - It is employed when there is a need to avoid duplicate values in specific columns or tables.
+        - The DISTINCT keyword removes duplicates, and the SELECT statement returns only the unique records in the table.
+    
+    * Syntax
+        SELECT DISTINCT column1, column2, ... columnN 
+        FROM table_name;
+        - column1, column2, ... columnN: Columns from which unique values are to be retrieved.
+        - table_name: Name of the table containing the data.
+        - DISTINCT Keyword on Single Columns
+        - Use the DISTINCT keyword on a single column to retrieve all unique values, eliminating duplicates.
+        - Useful for obtaining a summary of distinct values in a specific column or eliminating redundant data.
+
+    * Retrieve unique salary values from the CUSTOMERS table
+        SELECT DISTINCT SALARY FROM CUSTOMERS;
+        DISTINCT Keyword on Multiple Columns
+        - Use DISTINCT on multiple columns to retrieve all unique combinations of values across those columns.
+        - Useful for obtaining a summary of distinct values in multiple columns or eliminating redundant data.
+
+    * Retrieve unique combinations of age and salary from the CUSTOMERS table
+        SELECT DISTINCT AGE, SALARY FROM CUSTOMERS;
+        DISTINCT Keyword with COUNT() Function
+        - Use the DISTINCT keyword with the COUNT() function to count the number of unique values in a column.
+
+    * Count the number of distinct ages of customers
+        SELECT COUNT(DISTINCT AGE) AS UniqueAge FROM CUSTOMERS;
+        DISTINCT Keyword with NULL Values
+        DISTINCT treats NULL values as unique and includes them in the result set.
+
+    * Retrieve distinct salary values, including NULL, from the CUSTOMERS table
+        SELECT DISTINCT SALARY FROM CUSTOMERS;

@@ -1,0 +1,24 @@
+SQL SELECT Statement
+--------------------
+    
+    * Overview
+        - The SQL SELECT statement is used to retrieve data from a database table and present it as a result set.
+        - Result sets are presented in the form of tables.
+        - Various clauses and operators available in SQL can be used with the SELECT statement to filter records from a database table.
+
+    * Syntax
+        SELECT column1, column2, columnN FROM table_name;
+
+    * Retrieving All Fields/Columns
+        - To fetch all fields from the CUSTOMERS table
+        SELECT * FROM table_name;
+
+
+    * Computing Using SELECT
+        - The SELECT statement can also be used to perform mathematical computations
+        SELECT 56*65;
+
+    * Aliasing a Column in SELECT Statement
+        - To provide a more understandable name for a column, you can use the AS keyword for aliasing:
+        SELECT column_name AS alias_name FROM table_name;
+    

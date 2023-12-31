@@ -1,0 +1,52 @@
+SQL ORDER BY Clause
+-------------------
+    * Overview
+        - The SQL ORDER BY clause is used to sort data in either ascending or descending order based on one or more columns.
+        - It is used with the SQL SELECT statement and is specified after the WHERE, HAVING, and GROUP BY clauses.
+        - Sorting can be done by a single column or multiple columns, helpful for hierarchical sorting.
+    
+    * Syntax
+        SELECT column1, column2, ... columnN 
+        FROM table_name
+        ORDER BY column1 [ASC | DESC], column2 [ASC | DESC], ...;
+            - ASC: Ascending order (default if not specified).
+            - DESC: Descending order.
+            - ASC and DESC
+            - ASC is the default sort order.
+            - To sort in ascending order, ASC is optional.
+            - To sort in descending order, use DESC.
+
+    * Sort CUSTOMERS table by name in ascending order
+        SELECT * FROM CUSTOMERS ORDER BY NAME ASC;
+    
+    * Sorting by Multiple Columns
+        SELECT * FROM CUSTOMERS ORDER BY AGE ASC, SALARY DESC;
+        - Use ORDER BY with multiple columns for hierarchical sorting.
+        - Sorting is done in the order specified in the clause.
+    
+    * ORDER BY with WHERE Clause
+        - Use WHERE clause with ORDER BY to sort rows that meet certain conditions.
+        - Useful for sorting a subset of data based on specific criteria.
+        SELECT * FROM CUSTOMERS WHERE AGE = 25 ORDER BY NAME DESC;
+    
+    * ORDER BY with LIMIT Clause
+        - Use LIMIT with ORDER BY to limit rows and specify sorting.
+        SELECT column1, column2, ...
+        FROM table_name
+        ORDER BY column_name1 [ASC | DESC], column_name2 [ASC | DESC], ...
+        LIMIT N;
+
+    
+    * Sorting in a Preferred Order
+        - Use the CASE statement within ORDER BY to sort records in a custom order.
+        SELECT * FROM CUSTOMERS ORDER BY (
+        CASE ADDRESS
+            WHEN 'MUMBAI' THEN 1
+            WHEN 'DELHI' THEN 2
+            WHEN 'HYDERABAD' THEN 3
+            WHEN 'AHMEDABAD' THEN 4
+            WHEN 'INDORE' THEN 5
+            WHEN 'BHOPAL' THEN 6
+            WHEN 'KOTA' THEN 7
+            ELSE 100 END
+        );

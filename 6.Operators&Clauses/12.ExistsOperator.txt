@@ -1,0 +1,35 @@
+SQL EXISTS Operator
+-------------------
+    
+    * Overview
+        - The SQL EXISTS operator is utilized to verify whether a particular record exists in a MySQL table.
+        - It is commonly used in the WHERE clause of a SELECT statement to filter records based on the existence of related records in another table.
+        - The EXISTS operator is a logical operator, returning a Boolean value of TRUE or FALSE.
+        - It returns TRUE if the subquery returns at least one record; otherwise, it returns FALSE.
+        - The operator can be used in SELECT, UPDATE, DELETE, or INSERT statements.
+        - The EXISTS operator is more efficient than other operators, such as IN, because it only needs to determine whether any rows are returned by the subquery, rather than actually returning the data.
+    
+    * Syntax
+        WHERE EXISTS (subquery);
+
+    * Using EXISTS with SELECT Statement
+        SELECT * FROM CUSTOMERS WHERE 
+        EXISTS (
+            SELECT PRICE FROM CARS 
+            WHERE CARS.ID = CUSTOMERS.ID AND PRICE > 2000000
+        );
+
+    * Using NOT EXISTS Operator
+        - The NOT EXISTS operator is used to select records from one table that do not exist in another table:
+        SELECT * FROM CUSTOMERS WHERE NOT 
+        EXISTS (
+            SELECT * FROM CARS WHERE CUSTOMERS.ID = CARS.ID
+        );
+
+    * Usage of SQL EXISTS Operator
+        - The EXISTS operator is widely used in real-life scenarios for various purposes:
+        - Checking for the existence of records in a many-to-many relationship.
+        - Filtering records based on the existence of related records in another table.
+        - Aggregating data based on the existence of related records.
+        - Optimizing queries by only returning the necessary data.
+        - These use cases demonstrate the versatility and efficiency of the EXISTS operator in handling scenarios where the existence of related data is a key factor in the query logic

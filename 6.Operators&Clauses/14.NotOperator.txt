@@ -1,0 +1,32 @@
+SQL NOT Operator
+----------------
+    
+    * Overview
+        -The SQL NOT operator is a logical operator used to negate a condition or Boolean expression in a WHERE clause.
+        - It reverses the result of a condition, turning TRUE into FALSE and vice versa.
+        - Useful when specifying what records to exclude rather than include in the result.
+    
+    * Syntax
+        NOT [CONDITION or BOOLEAN EXPRESSION];
+        CONDITION or BOOLEAN EXPRESSION: The condition to be negated.
+
+
+    * Using NOT to retrieve rows where SALARY is not greater than 2000.00
+        SELECT * FROM CUSTOMERS WHERE NOT (SALARY > 2000.00);
+
+    * Use Cases
+        1.Excluding Records
+            - Use NOT to exclude records that do not meet specific conditions.
+        2.Negating LIKE Operations
+            - Use NOT with LIKE to find records that do not match a specified pattern.
+        3.Excluding Values in a Range
+            - Use NOT with IN or BETWEEN to exclude records falling within a specified range.
+        4.Filtering NULL Values
+            - Use NOT with IS NULL to exclude records with NULL values.
+        5.Negating EXISTS Checks
+            - Use NOT with EXISTS to find records that do not exist in another table.
+    
+    * Notes
+        - The SQL NOT operator is a powerful tool for creating exceptions in WHERE clauses.
+        - It is commonly used with various SQL operators to create complex conditions.
+        - Helps in crafting queries that focus on what not to include in the result set.

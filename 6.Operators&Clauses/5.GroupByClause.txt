@@ -1,0 +1,38 @@
+SQL GROUP BY clause
+-------------------    
+    * The SQL GROUP BY clause is used to arrange identical data into groups, 
+    and it is typically used with aggregate functions to perform calculations on these groups. 
+
+    * Syntax
+        SELECT column1, aggregate_function(column2)
+        FROM table_name
+        GROUP BY column1;
+        - column1: The column based on which you want to group the results.
+        - aggregate_function(column2): An aggregate function like SUM, COUNT, AVG, MIN, MAX, etc., applied to another column.
+        - table_name: The name of the table you are querying.
+
+    * Simple GROUP BY
+        - Grouping the records of a table based on the AGE column and counting the number of records in each group.
+        SELECT AGE, COUNT(Name) FROM CUSTOMERS GROUP BY AGE;
+    
+    * GROUP BY with Aggregate Functions
+        - Grouping the records based on the AGE column and finding the highest salary for each age.
+        SELECT AGE, MAX(salary) AS MAX_SALARY 
+        FROM CUSTOMERS GROUP BY AGE;
+    
+    * GROUP BY with Multiple Columns
+        - Grouping the records based on the columns ADDRESS and AGE and calculating the total salary in each group.
+        SELECT ADDRESS, AGE, SUM(SALARY) AS TOTAL_SALARY 
+        FROM CUSTOMERS GROUP BY ADDRESS, AGE;
+    
+    * GROUP BY with ORDER BY Clause
+        - Sorting the result of the GROUP BY operation based on the minimum salary in descending order.
+        SELECT AGE, MIN(SALARY) AS MIN_SALARY 
+        FROM CUSTOMERS 
+        GROUP BY AGE ORDER BY MIN_SALARY DESC;
+    
+    * GROUP BY with HAVING Clause
+        - Filtering the groups based on a condition using the HAVING clause. Here, we are selecting groups where the age is greater than 24.
+        SELECT ADDRESS, AGE, MIN(SALARY) AS MIN_SUM 
+        FROM CUSTOMERS 
+        GROUP BY ADDRESS, AGE HAVING AGE > 24;

@@ -1,0 +1,22 @@
+Renaming a Database
+-------------------
+
+    * Using RENAME DATABASE (Obsolete)
+        -The SQL RENAME DATABASE...TO statement was used to rename an existing user-created database. 
+        However, this command is obsolete and has been removed from newer versions due to security risks.
+    
+    * Syntax
+        - RENAME DATABASE OldDatabaseName TO NewDatabaseName;
+
+    * Using Dump and Reimport:
+        - Renaming a database in MySQL can be achieved by dumping the existing database into an SQL file and re-importing it into a new database.
+        - Step 1: Dump the Old Database                 : $ mysqldump -u username -p"password" -R testDB > testDB.sql
+        - Step 2: Create New Database                   : $ mysqladmin -u username -p"password" create tutorialsDB;
+        - Step 3: Import Old Database into New Database : $ mysql -u username -p"password" tutorialsDB < testDB.sql;
+
+    * Using ALTER DATABASE...MODIFY (SQL Server)
+        - The ALTER DATABASE...MODIFY statement is used to rename an existing database in SQL Server.
+        Note that this command does not work in MySQL.
+        - Syntax : ALTER DATABASE OldDatabaseName MODIFY NAME = NewDatabaseName;
+        - Note: Always ensure proper backup and handle active transactions before attempting to rename a database. 
+        The recommended approach is using the dump and reimport method for MySQL databases.

@@ -1,0 +1,19 @@
+Database Overview
+-----------------
+    * A database is a structured collection of data stored in a computer system. It efficiently stores and retrieves data.
+    Query Languages: Different query languages can be used to create databases, with SQL being a prominent language.
+
+    * CREATE Database Statement
+        - The CREATE DATABASE statement is a DDL (Data Definition Language) statement used to create a new database in SQL.
+        - Syntax : CREATE DATABASE DatabaseName;
+        - DatabaseName: Name of the database to be created, using valid identifiers (numbers, letters, underscores). It cannot be an SQL keyword.
+        - On Linux or Unix, database names are case-sensitive, but SQL keywords are case-insensitive. Windows doesn't have this restriction.
+        - When creating a database, if you encounter an error like ERROR 1044 (42000): Access denied for user 'user'@'localhost' to database 'DatabaseName', it indicates insufficient privileges. Admin privileges are needed.
+
+    * List Databases using SQL:
+        - After creating a database, you can check the list of databases using the SHOW DATABASES; command.
+        - Syntax : SHOW DATABASES;
+
+    * Use/Select Databases using SQL:
+        - Set the newly created database as the default using the USE statement.
+        - Syntax : USE testDB;

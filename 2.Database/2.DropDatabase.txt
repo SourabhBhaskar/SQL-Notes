@@ -1,0 +1,21 @@
+Drop database
+-------------  
+    * The DROP DATABASE statement is used to delete an existing database in SQL. 
+    This includes all associated data such as tables, views, indexes, stored procedures, and constraints.
+    
+    * Important Points
+        - Backup: Ensure a proper backup of the database is taken before deletion.
+        - Connections: No other applications should be connected to or using the database being deleted.
+        - Privileges: Necessary privileges are required, usually by an admin, to delete the database.
+    
+    * Syntax
+        DROP DATABASE DatabaseName;
+        - DatabaseName: The name of the database to be deleted. It is unique within the RDBMS.
+
+    * DROP DATABASE IF EXISTS Statement
+        - The DROP DATABASE IF EXISTS statement includes a condition to check if the database exists before attempting deletion. 
+        If the database doesn't exist, no error is raised, and the statement terminates without any action.
+        Syntax : DROP DATABASE IF EXISTS DatabaseName;
+
+    * Deleting multiple databases (e.g., testDB3, testDB4)
+        DROP DATABASE testDB3, testDB4;

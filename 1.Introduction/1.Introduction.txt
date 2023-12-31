@@ -1,0 +1,47 @@
+SQL Database
+------------
+    * SQL (Structured Query Language) is a programming language which is used to manage data stored in relational databases.
+    like MySQL, MS Access, SQL Server, Oracle, Sybase, Informix, Postgres etc.
+
+    * SQL is the standard language to communicate with Relational Database Systems.
+
+    * Structured Query Language (SQL) appeared in 1974.
+
+
+
+
+Types of SQL Database
+---------------------
+    * MySQL
+        - MySQL is an open-source database that stores and manages data using tables. 
+        - It is widely used for web applications and is known for its speed and reliability.
+
+    * MS SQL Server
+        - Microsoft SQL Server is a database system by Microsoft that organizes and retrieves data using a structured query language (SQL). 
+        - It is commonly used in enterprise applications.
+
+    * Oracle
+        - Oracle Database is a powerful and scalable relational database management system. 
+        - It is widely used for large-scale enterprise applications and supports complex data structures.
+
+    * MS Access
+        - Microsoft Access is a user-friendly database system that helps individuals and small businesses manage and analyze data. 
+        - It is part of the Microsoft Office suite.
+
+    * PostgreSQL
+        - PostgreSQL is an open-source relational database known for its extensibility and compliance with SQL standards. 
+        - It is suitable for various applications, from small projects to large enterprise systems.
+
+    * SQLite
+        - SQLite is a lightweight, file-based database that doesn't require a separate server. 
+        - It is often used in embedded systems and mobile applications for local data storage.
+
+
+
+
+Notes
+-----
+    * Case Sensitivity : SQL is not case sensitive, which means SELECT and Select have same meaning in SQL statements.
+    * Semicolon        : It's statements require a semicolon (;) at the end of each statement.
+    * Comments         : Comments use double hyphens for single-line and /* */ for multi-line comments.
+    * Quetes           : Single quotes denote string literals, while double quotes are for identifiers.

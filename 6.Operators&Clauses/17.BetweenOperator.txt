@@ -1,0 +1,20 @@
+SQL BETWEEN Operator
+--------------------
+    
+    * Overview
+        - The BETWEEN operator in SQL is a logical operator used to retrieve data within a specified range. It can be applied to integers, characters, or dates.
+        - This operator simplifies the condition of checking if a value is within a range, replacing combinations of "greater than equal AND less than equal" conditions.
+    
+    * SQL BETWEEN Operator Syntax
+        SELECT column1, column2, ..., columnN
+        FROM table_name
+        - WHERE column BETWEEN value1 AND value2;
+        - value1: Beginning value of the range.
+        - value2: Ending value of the range (inclusive).
+
+    * Retrieving customers aged between 20 and 25
+        SELECT * FROM CUSTOMERS WHERE AGE BETWEEN 20 AND 25;
+    
+    * Notes
+        - The BETWEEN operator is inclusive, meaning it includes values at both ends of the specified range.
+        - It can be used with different data types, including numeric and character data.

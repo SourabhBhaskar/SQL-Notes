@@ -1,0 +1,47 @@
+SQL Foreign Key
+---------------
+    
+    * Overview
+        - The SQL Foreign Key establishes a link between two tables, enforcing referential integrity.
+        - It is a column (or combination of columns) in one table that refers to the Primary Key in another table.
+    
+    * Points to Remember
+        - Creates a relationship between tables.
+        - Ensures referential integrity.
+        - Values in the Foreign Key must exist in the referenced table's Primary Key.
+        - Allows NULL values, indicating an optional relationship.
+    
+    * Creating an SQL Foreign Key
+        CREATE TABLE ORDERS (
+            ORDER_ID INT PRIMARY KEY,
+            PRODUCT_NAME VARCHAR(50),
+            CUSTOMER_ID INT,
+            FOREIGN KEY (CUSTOMER_ID) REFERENCES CUSTOMERS(ID)
+        );
+
+    * Dropping an SQL Foreign Key
+        - ALTER TABLE ORDERS DROP FOREIGN KEY orders_customer_fk;
+
+    * Foreign Key Constraints
+        - Foreign Key constraints can be added during table creation or altered later using the ALTER TABLE statement.
+        ALTER TABLE ORDERS
+        ADD CONSTRAINT orders_customer_fk
+        FOREIGN KEY (CUSTOMER_ID) REFERENCES CUSTOMERS(ID);
+
+    * Dropping a Foreign Key Constraint
+        - ALTER TABLE ORDERS DROP FOREIGN KEY orders_customer_fk;
+    
+    * Cascade Delete
+        - When a record with a Foreign Key is deleted, the CASCADE option automatically deletes related records in the child table.
+        CREATE TABLE ORDERS (
+            ORDER_ID INT PRIMARY KEY,
+            PRODUCT_NAME VARCHAR(50),
+            CUSTOMER_ID INT,
+            FOREIGN KEY (CUSTOMER_ID) REFERENCES CUSTOMERS(ID) ON DELETE CASCADE
+        );
+
+    * Summary
+        - Foreign Keys link tables, ensuring data consistency.
+        - They reference the Primary Key of another table.
+        - Foreign Key values must exist in the referenced table's Primary Key.
+        - The CASCADE option automates the deletion of related records in the child table.

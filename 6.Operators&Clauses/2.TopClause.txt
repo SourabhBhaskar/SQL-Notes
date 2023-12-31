@@ -1,0 +1,59 @@
+SQL TOP Clause Notes
+--------------------
+   * Overview
+      - The SQL TOP clause is used to restrict the number of rows returned by a SELECT query in SQL Server.
+      - It can also be applied to UPDATE and DELETE statements to limit the resultant records.
+
+   * Syntax
+      - value: Number or percentage of rows to return from the top.
+      - SQL Server
+         SELECT TOP value column_name(s)
+         FROM table_name
+         WHERE [condition];
+      - MySQL
+         SELECT column_name(s)
+         FROM table_name
+         WHERE [condition]
+         LIMIT value;
+
+   * Basic TOP Usage
+      1. Fetch the top 4 records from the CUSTOMERS table
+         - SQL Server
+            SELECT TOP 4 * FROM CUSTOMERS;
+         - MySQL
+            SELECT * FROM CUSTOMERS LIMIT 4;
+
+      2. TOP with ORDER BY Clause
+         - Fetch the top 4 records from CUSTOMERS, sorted by salary in descending order
+         - SQL Server
+            SELECT TOP 4 * FROM CUSTOMERS ORDER BY SALARY DESC;
+         - MySQL
+            SELECT * FROM CUSTOMERS ORDER BY SALARY DESC LIMIT 4;
+
+      3. TOP with WHERE Clause
+         - Fetch the top 2 records from CUSTOMERS where the name starts with 'K'
+         - SQL Server
+            SELECT TOP 2 * FROM CUSTOMERS WHERE NAME LIKE 'K%';
+         - MySQL
+            SELECT * FROM CUSTOMERS WHERE NAME LIKE 'K%' LIMIT 2;
+
+      4. TOP Clause With DELETE Statement
+         - Delete the top 2 customers whose names start with 'K'
+         - SQL Server
+            DELETE TOP(2) FROM CUSTOMERS WHERE NAME LIKE 'K%';
+         - MySQL
+            DELETE FROM CUSTOMERS WHERE NAME LIKE 'K%' LIMIT 2;
+
+      5. TOP and WITH TIES Clause
+         - Fetch the top 2 records from CUSTOMERS with tied values in salary
+         - SQL Server
+            SELECT TOP 2 WITH TIES * FROM CUSTOMERS ORDER BY SALARY;
+         - MySQL (Equivalent not directly supported)
+            - To achieve similar functionality, you may need to use a subquery or multiple queries.
+
+   * Uses of TOP Clause
+      - Pagination: Manage and efficiently display large sets of data.
+      - Sampling Data: Quickly retrieve a sample of data for testing or analysis.
+      - Performance Improvement: Enhance query performance, especially for large tables.
+      - Debugging: Test query correctness by limiting rows.
+      - Data Visualization: Limit rows for creating charts or graphs.

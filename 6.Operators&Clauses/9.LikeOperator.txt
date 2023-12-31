@@ -1,0 +1,23 @@
+SQL LIKE Operator
+-----------------
+    
+    * Introduction
+        - The SQL LIKE operator is employed to retrieve data from a column of a table based on a specified pattern. 
+        - It is commonly used with the WHERE clause of UPDATE, DELETE, and SELECT statements to filter rows based on a given pattern. Wildcards are used to specify these patterns.
+
+    * Basic Syntax
+        SELECT column1, column2, ...
+        FROM table_name
+        WHERE columnn LIKE specified_pattern;
+    
+    * Wildcards
+        - SQL wildcards are special characters used to match patterns in data. 
+        - The main wildcards used with the LIKE operator in MySQL are:
+        - %: Represents zero, one, or multiple characters.
+        - _: Represents a single number or character.
+
+
+    * Usages
+        - Extracting data that matches a required pattern.
+        - Performing complex regex-based queries on data.
+        - Simplifying complex queries.

@@ -1,0 +1,42 @@
+SQL - AND and OR Conjunctive Operators
+--------------------------------------
+    
+    * Operators in SQL
+        - Operators are reserved words primarily used in SQL to perform various operations on data, like addition (+), subtraction (-), or comparison (==).
+
+    * Conjunctive Operators
+        - Conjunctive operators, used in boolean logic, combine two conditions in an SQL statement. The most common ones are:
+        - AND (&&) : Returns true if both conditions are true.
+        - OR (||) : Returns true if at least one condition is true.
+
+    * AND Operator
+        1.Syntax
+            WHERE [condition1] AND [condition2];
+            - Conditions are combined using the AND operator.
+            - N number of conditions can be combined.
+            - All specified conditions must be TRUE for the action to be taken.
+
+        2.With multiple condition
+            WHERE [condition1] AND [condition2] AND [condition3];
+            - Multiple AND operators can be used.
+            - Conditions are evaluated from left to right.
+            - If any condition is false, the entire condition is false.
+        
+
+    * OR operator
+        1.Syntax
+            WHERE [condition1] OR [condition2];
+            - Conditions are combined using the OR operator.
+            - At least one condition must be TRUE for the action to be taken.
+    
+        2.Multiple OR Operators
+            WHERE condition1 OR condition2 OR condition3;
+            Multiple OR operators can be used.
+            Rows meeting at least one condition are included in the result-set.
+    
+    * OR with AND Operator
+        WHERE condition1 AND (condition2 OR condition3);
+        - AND and OR can be combined with each other.
+        - Parentheses control the order of operations.
+        - AND and OR operators can be combined.
+        - Parentheses control the order of evaluation.

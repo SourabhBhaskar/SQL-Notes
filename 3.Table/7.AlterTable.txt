@@ -1,0 +1,60 @@
+ALTER TABLE
+-----------
+    * Introduction to ALTER TABLE in MySQL
+        - Part of Data Definition Language (DDL).
+        - Modifies the structure of a table.
+        - Allows operations like adding/deleting columns, creating/destroying indexes, changing column types, and renaming columns or tables.
+    
+    * Basic Syntax of ALTER TABLE in MySQL
+        - Syntax: ALTER TABLE table_name [alter_option ...];
+        - alter_option depends on the type of operation (e.g., ADD, DROP, ADD INDEX, DROP INDEX, etc.).
+    
+    * ALTER TABLE − ADD Column
+        - To add a new column to a table.
+        - Syntax: ALTER TABLE table_name ADD column_name datatype;
+        - ALTER TABLE CUSTOMERS ADD SEX char(1);
+    
+    * ALTER TABLE − DROP COLUMN
+        - To drop an existing column from a table.
+        - Syntax: ALTER TABLE table_name DROP COLUMN column_name;
+        - ALTER TABLE CUSTOMERS DROP COLUMN SEX;
+    
+    * ALTER TABLE − ADD INDEX
+        - Adds an index to an existing column.
+        - Syntax: ALTER TABLE table_name ADD INDEX index_name (column_name);
+        - ALTER TABLE CUSTOMERS ADD INDEX name_index (NAME);
+    
+    * ALTER TABLE − DROP INDEX
+        - Drops an existing index from a table.
+        - Syntax: ALTER TABLE table_name DROP INDEX index_name;
+        - ALTER TABLE CUSTOMERS DROP INDEX name_index;
+    
+    * ALTER TABLE − ADD PRIMARY KEY
+        - Adds a primary key constraint.
+        - Syntax: ALTER TABLE table_name ADD CONSTRAINT constraint_name PRIMARY KEY (column1, column2...);
+        - ALTER TABLE EMPLOYEES ADD CONSTRAINT MyPrimaryKey PRIMARY KEY(ID);
+    
+    * ALTER TABLE − DROP PRIMARY KEY
+        - Drops the primary key constraint from a table.
+        - Syntax: ALTER TABLE table_name DROP PRIMARY KEY;
+        - ALTER TABLE EMPLOYEES DROP PRIMARY KEY;
+    
+    * ALTER TABLE − ADD CONSTRAINT
+        - Adds a unique constraint to a column.
+        -Syntax: ALTER TABLE table_name ADD CONSTRAINT constraint_name UNIQUE(column1, column2...);
+        - ALTER TABLE EMPLOYEES ADD CONSTRAINT CONST UNIQUE(NAME);
+    
+    * ALTER TABLE − DROP CONSTRAINT
+        - Drops a unique constraint from a table.
+        - Syntax: ALTER TABLE table_name DROP CONSTRAINT constraint_name;
+        sql ALTER TABLE EMPLOYEES DROP CONSTRAINT CONST;
+
+    * ALTER TABLE − RENAME COLUMN
+        - Renames a column in an existing table.
+        - Syntax: ALTER TABLE table_name RENAME COLUMN old_column_name TO new_column_name;
+        sql ALTER TABLE CUSTOMERS RENAME COLUMN name TO full_name;
+
+    * ALTER TABLE − MODIFY DATATYPE
+        - Changes the data type of a column.
+        - Syntax (MySQL): ALTER TABLE table_name MODIFY COLUMN column_name datatype;
+        sql ALTER TABLE CUSTOMERS MODIFY COLUMN ID DECIMAL(18, 4);

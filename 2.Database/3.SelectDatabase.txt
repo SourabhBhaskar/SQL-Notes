@@ -1,0 +1,16 @@
+Selecting a Database
+--------------------
+    * Overview
+        - Use the USE DATABASE statement to select a database from the available list of databases in the system.
+        - Syntax : USE DatabaseName;
+        - DatabaseName: The unique name of the database within the RDBMS.
+
+
+    * Handling Non-Existing Database:
+        - An attempt to switch to a non-existent database results in an error. 
+        Always ensure the correct database name is used in the USE DATABASE statement.
+
+    * Attempting to select a non-existent database (e.g., unknownDatabase)
+        - USE unknownDatabase;
+        ERROR 1049 (42000): Unknown database 'unknownDatabase'
+        Note: The USE DATABASE statement is crucial for setting the context for database operations in SQL. Always verify the existence of the selected database and handle errors appropriately.

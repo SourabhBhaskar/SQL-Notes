@@ -1,0 +1,38 @@
+SQL WHERE Clause
+----------------
+    * The SQL WHERE clause is used to filter the results obtained by DML statements such as SELECT, UPDATE, and DELETE. 
+    It allows the retrieval or modification of specific records based on specified conditions.
+
+    * Syntax 
+        - The DML_Statement can be any statement, such as SELECT, UPDATE, DELETE, etc. 
+        The WHERE clause specifies conditions using comparison or logical operators like >, <, =, LIKE, NOT, etc.
+        DML_Statement column1, column2, ... columnN
+        FROM table_name
+        WHERE [condition];
+
+    * WHERE Clause with SELECT Statement. When used with the SELECT statement, the WHERE clause filters rows based on specific conditions.
+        SELECT column1, column2, ...
+        FROM table_name
+        WHERE condition;
+        WHERE Clause with UPDATE Statement
+    
+    * The UPDATE statement modifies existing records in a table. Using the WHERE clause with UPDATE allows updating specific records.
+        UPDATE table_name
+        SET column1 = value1, column2 = value2, ...
+        WHERE condition;
+        WHERE Clause with IN Operator
+
+    * The IN operator allows specifying a list of values or a subquery in the WHERE clause. It retrieves rows matching any of the values in the list.
+        WHERE column_name IN (value1, value2, ...);
+    
+    * WHERE Clause with NOT IN Operator
+        - The NOT IN operator negates the WHERE clause with the IN operator. It retrieves rows not matching the specified list of values.
+        WHERE column_name NOT IN (value1, value2, ...);
+        WHERE Clause with LIKE Operator
+    
+    * The LIKE operator filters rows that match a specific pattern using wildcards (%,_).
+        WHERE column_name LIKE pattern;
+        WHERE Clause with AND, OR Operators
+    
+    * The AND and OR operators combine multiple conditions in a WHERE clause to filter rows. AND ensures all conditions are satisfied, while OR filters records that satisfy any one of the conditions.
+        WHERE (condition1 OR condition2) AND condition3;

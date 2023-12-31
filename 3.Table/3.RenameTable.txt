@@ -1,0 +1,21 @@
+Renaming Tables
+---------------
+    * In MySQL, you can use either the RENAME TABLE statement or the ALTER TABLE statement to rename a table. 
+    Here's an explanation of both methods:
+
+    * Using RENAME TABLE Statement
+        RENAME TABLE cutomers TO buyers
+        - This command renames the CUSTOMERS table to BUYERS. You should ensure that there is no table with the new name (BUYERS) already existing.
+
+    * Using ALTER TABLE Statement:
+        - This is an alternative syntax using the ALTER TABLE statement to achieve the same result. 
+        It's essentially a shorthand for the RENAME TABLE operation.
+            ALTER TABLE old_table_name RENAME TO new_table_name;
+
+    * Verification
+        - After renaming the table, you can verify the changes by querying the new table name:
+        - Both methods achieve the same result, and you can choose the one that you find more convenient or readable.
+
+    * Note
+        - In MySQL, both RENAME TABLE and ALTER TABLE ... RENAME TO are valid ways to rename a table, and they are functionally equivalent. 
+        The choice between them is a matter of preference, and you can use either based on your coding style or familiarity.

@@ -1,0 +1,63 @@
+SQL HAVING Clause
+-----------------
+    * The SQL HAVING clause filters grouped rows based on specified criteria, similar to the WHERE clause. 
+    However, it is used specifically to filter groups of rows resulting from the GROUP BY clause.
+    
+    *The HAVING clause is a powerful tool for filtering grouped data and applying conditions to aggregated results. 
+    It is a crucial component of SQL queries involving GROUP BY for advanced data analysis.
+
+    * The HAVING clause is always used after the GROUP BY clause, 
+    and it allows filtering based on aggregate functions such as COUNT(), SUM(), AVG(), MAX(), or MIN().
+
+    * Syntax
+        SELECT column1, column2, aggregate_function(column)
+        FROM table_name
+        GROUP BY column1, column2
+        HAVING condition;
+        - column1, column2: Columns used for grouping.
+
+    * aggregate_function(column): Aggregate functions applied to grouped data.
+        - condition: Criteria applied to the grouped data.
+        SELECT column1, column2, aggregate_function(column)
+        FROM table_name
+        GROUP BY column1, column2
+        HAVING condition;
+    
+    * HAVING with GROUP BY Clause
+        - The HAVING clause is commonly used with the GROUP BY clause to filter groups based on certain conditions.
+        SELECT column1, column2, aggregate_function(column)
+        FROM table_name
+        GROUP BY column1, column2
+        HAVING condition;
+    
+    * HAVING with ORDER BY Clause
+        - The ORDER BY clause can be used with HAVING to sort the result set based on specific columns after filtering.
+        SELECT column1, column2, aggregate_function(column)
+        FROM table_name
+        GROUP BY column1, column2
+        HAVING condition
+        ORDER BY column1 [ASC | DESC], column2 [ASC | DESC];
+    
+    * HAVING with COUNT() Function
+        - HAVING can be used with the COUNT() function to filter groups based on the number of rows they contain.
+        SELECT column, COUNT(column)
+        SELECT column, COUNT(column)
+        FROM table_name
+        GROUP BY column
+        HAVING COUNT(column) condition;
+    
+    * HAVING with AVG() Function
+        - The AVG() function in HAVING allows filtering groups based on the average value of a specified column.
+        SELECT column, AVG(column) as avg_value
+        FROM table_name
+        GROUP BY column
+        HAVING AVG(column) condition;
+    
+    * HAVING with MAX() Function
+        - HAVING can also be used with the MAX() function to filter groups based on the maximum value of a specified column.
+        SELECT column, MAX(column) as max_value
+        FROM table_name
+        GROUP BY column
+        HAVING MAX(column) condition;
+
+

@@ -1,0 +1,29 @@
+SQL NOT EQUAL Operator
+----------------------
+    
+    * Overview
+        - The SQL NOT EQUAL operator (<> or !=) is used to compare two values and return true if they are not equal.
+        - The difference between <> and != lies in adherence to the ISO standard; <> follows the standard, while != doesn't. It is recommended to use <>.
+    
+    * Syntax
+        WHERE expression1 <> expression2;
+        - expression1 and expression2: Values or expressions to be compared.
+    
+
+    * Using NOT EQUAL to retrieve rows where NAME is not 'Ramesh'
+        SELECT * FROM CUSTOMERS WHERE NAME <> 'Ramesh';
+    
+    * Use Cases
+        1.Excluding Specific Values
+            - Use NOT EQUAL to exclude rows where a particular column has a specific value.
+        2.Grouping by Non-Equal Values
+            - Use NOT EQUAL with GROUP BY to group results by values that are not equal to a specified value.
+        3.Multiple Conditions with NOT EQUAL
+            - Use NOT EQUAL with multiple conditions to filter rows based on complex criteria.
+        4.Negating a Condition
+            - Combine NOT EQUAL with the NOT Operator to negate a specific condition.
+   
+    * Notes
+        - SQL NOT EQUAL is useful for excluding specific values or grouping results based on non-equal conditions.
+        - It is case-sensitive by default, even when used with text values.
+        - Consider using <> for better adherence to ISO standards.

@@ -1,0 +1,46 @@
+Backup MySQL Database
+---------------------
+    
+    * Using mysqldump (Command Line)
+        - To take a complete backup of a MySQL database, the mysqldump command is used.
+        - Backup Syntax: $ mysqldump -u username -p"password" -R testDB > testDB.sql
+        u: MySQL username
+        p"password": MySQL password (without space)
+        R: Copy stored procedures and functions
+
+    * Restore MySQL Database
+        - To restore a MySQL database from a dump, create a new database using mysqladmin and then import the old database.
+        - Restore Steps
+        $ mysqladmin -u username -p"password" create tutorialsDB;
+        $ mysql -u username -p"password" tutorialsDB < testDB.sql;
+        - If keeping the same database name, drop the old database and re-create it before importing.
+    
+    * Backup MS SQL Database
+        - Using SQL BACKUP DATABASE Command
+        - In MS SQL Server, the BACKUP DATABASE command is used to create a backup.
+        - Backup Syntax : BACKUP DATABASE database_name TO DISK = 'filepath' GO
+
+    * Example backup for testDB on D drive
+        - BACKUP DATABASE testDB TO DISK = 'D:\testDB.bak' GO
+    
+    * Backup with SQL DIFFERENTIAL Statement
+        - The BACKUP DATABASE WITH DIFFERENTIAL statement creates a smaller backup containing changes since the last full backup.
+        - Backup Syntax : BACKUP DATABASE database_name TO DISK = 'filepath' WITH DIFFERENTIAL GO
+
+    * Example differential backup for testDB on D drive
+        - BACKUP DATABASE testDB TO DISK = 'D:\testDB.bak' WITH DIFFERENTIAL GO
+    
+    * Restore MS SQL Database
+        - If you have a proper backup, use the RESTORE DATABASE command to restore the database.
+    
+    * Restore Syntax:
+        - RESTORE DATABASE database_name FROM DISK = 'filepath' [WITH REPLACE] GO
+
+    * Example restore from backup file testDB.bak on D drive
+        - RESTORE DATABASE testDB FROM DISK = 'D:\testDB.bak' WITH REPLACE GO
+        - Use WITH REPLACE to overwrite the existing database.
+    
+    * Note
+        - Backing up databases is crucial for data safety, and regular backups are recommended.
+        - Adjust paths, usernames, and passwords based on your system configuration.
+        - Ensure admin or sysadmin privileges for backup and restore operations.

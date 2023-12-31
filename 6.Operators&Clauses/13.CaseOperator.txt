@@ -1,0 +1,57 @@
+SQL CASE Statement
+------------------
+    * Overview
+        - The SQL CASE statement is a conditional statement used for decision-making based on a set of conditions.
+        - It evaluates conditions and returns corresponding values when a condition is met.
+        - Similar to an IF-THEN-ELSE statement, it allows multiple conditions to be tested.
+    
+    * Syntax
+        CASE
+        WHEN condition1 THEN result1
+        WHEN condition2 THEN result2
+        ...
+        ELSE default_result
+        END;
+        - condition1, condition2, etc.: Conditional statements to be evaluated.
+        - result1, result2, etc.: Values returned when the corresponding condition is true.
+        - default_result: Value returned if none of the conditions are true.
+
+    * Using CASE to categorize customers based on age
+        SELECT NAME, AGE,
+        CASE 
+        WHEN AGE > 30 THEN 'Gen X'
+        WHEN AGE > 25 THEN 'Gen Y'
+        WHEN AGE > 22 THEN 'Gen Z'
+        ELSE 'Gen Alpha' 
+        END AS Generation
+        FROM CUSTOMERS;
+
+    * Using CASE with UPDATE to modify salaries based on age
+        UPDATE CUSTOMERS
+        SET SALARY = 
+        CASE 
+        WHEN AGE = 25 THEN 17000
+        WHEN AGE = 32 THEN 25000
+        ELSE 12000
+        END;
+
+    * Using CASE with INSERT to add a new record
+        INSERT INTO CUSTOMERS (ID, NAME, AGE, ADDRESS, SALARY)
+        VALUES (10, 'Viren', 28, 'Varanasi', 
+        CASE 
+            WHEN AGE >= 25 THEN 23000
+            ELSE 14000
+        END
+        );
+
+    * Use Cases
+        - Conditional Column Creation: Creating a new column based on conditions in existing columns.
+        - Sorting and Grouping: Sorting or grouping query results based on specific conditions.
+        - Conditional Updates: Updating table values based on specified conditions.
+        - Conditional Inserts: Inserting data into tables with conditions determining the values.
+        - Filtering and Categorizing:Filtering rows or categorizing data based on specific criteria.
+    
+    * Notes
+        - The CASE statement provides a powerful way to handle conditional logic within SQL queries.
+        - It can be used in SELECT, UPDATE, INSERT, and other SQL statements.
+        - A versatile tool for data manipulation and decision-making within the database.

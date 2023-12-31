@@ -1,0 +1,83 @@
+ Constraints Overview
+---------------------
+    * Definition:
+        - Purpose: Rules applied to data columns or entire tables.
+        - Verification: Checked during INSERT, UPDATE, or DELETE operations.
+        - Impact: Aborts operation if constraints are violated.
+    
+    * Constraint Types
+        1.NOT NULL Constraint
+            - Ensures a column cannot have a NULL value.
+            CREATE TABLE CUSTOMERS (
+                ID INT NOT NULL,
+                NAME VARCHAR (20) NOT NULL,
+                AGE INT NOT NULL,
+                ADDRESS CHAR (25),
+                SALARY DECIMAL (18, 2)
+            );
+
+        2.UNIQUE Key Constraint
+            - Ensures a column accepts only UNIQUE values.
+            CREATE TABLE CUSTOMERS (
+                ID INT NOT NULL UNIQUE,
+                NAME VARCHAR (20) NOT NULL,
+                AGE INT NOT NULL,
+                ADDRESS CHAR (25),
+                SALARY DECIMAL (18, 2)
+            );
+
+        3.DEFAULT Value Constraint
+            - Provides a default value for a column if not specified.
+            CREATE TABLE CUSTOMERS (
+                ID INT NOT NULL UNIQUE,
+                NAME VARCHAR (20) DEFAULT 'Not Available',
+                AGE INT NOT NULL,
+                ADDRESS CHAR (25),
+                SALARY DECIMAL (18, 2)
+            );
+
+        4.PRIMARY Key Constraint
+            - Ensures a column accepts only UNIQUE values; uniquely identifies a record.
+            CREATE TABLE CUSTOMERS (
+                ID INT NOT NULL,
+                NAME VARCHAR (20) NOT NULL,
+                AGE INT NOT NULL,
+                ADDRESS CHAR (25),
+                SALARY DECIMAL (18, 2),
+                PRIMARY KEY (ID)
+            );
+
+        5.FOREIGN Key Constraint
+            - Maps a column to another table; uniquely identifies a record.
+            CREATE TABLE ORDERS (
+                ID INT NOT NULL,
+                DATE DATETIME,
+                CUSTOMER_ID INT FOREIGN KEY REFERENCES CUSTOMERS(ID),
+                AMOUNT DECIMAL,
+                PRIMARY KEY (ID)
+            );
+
+        6.CHECK Value Constraint
+            - Validates data entered into a column based on specified conditions.
+            CREATE TABLE CUSTOMERS (
+                ID INT NOT NULL,
+                NAME VARCHAR (20) NOT NULL,
+                AGE INT NOT NULL CHECK(AGE>=18),
+                ADDRESS CHAR (25),
+                SALARY DECIMAL (18, 2),
+                PRIMARY KEY (ID)
+            );
+
+        7.INDEX Constraint
+            - Speeds up data retrieval; can be Unique or Non-Unique.
+            CREATE INDEX idx_age ON CUSTOMERS ( AGE );
+        
+        8.Dropping Constraints
+            ALTER TABLE table_name DROP CONSTRAINT constraint_name;
+            ALTER TABLE CUSTOMERS DROP CONSTRAINT PRIMARY KEY;
+
+    * Data Integrity Constraints
+        - Ensure accuracy, completeness, and consistency of data.
+        - Enforced through referential integrity.
+        - Types include Primary Key, Foreign Key, Unique Constraints, etc.
+        Note: Constraints can be defined at the column or table level, offering a powerful mechanism for maintaining data integrity and controlling data entry into the database.

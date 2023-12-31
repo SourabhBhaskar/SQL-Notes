@@ -1,0 +1,41 @@
+Listing Database
+-----------------
+
+    * Using SQL SHOW DATABASES (MySQL):
+        - The SHOW DATABASES statement is used in MySQL to list all available databases. 
+        You can also use SHOW SCHEMAS as an alternative.
+    
+    * Syntax
+        - SHOW DATABASES [LIKE 'pattern' | WHERE expr];
+
+    * Listing all available databases
+        - SHOW DATABASES;
+
+    * Listing databases whose name starts with 'test'
+        - SHOW DATABASES LIKE 'test%';
+
+    * Using SQL SHOW SCHEMAS (MySQL)
+        - The SHOW SCHEMAS statement is an alternate for SHOW DATABASES in MySQL.
+        - Syntax: SHOW SCHEMAS [LIKE 'pattern' | WHERE expr];
+
+    * Listing all available databases using SHOW SCHEMAS
+        - SHOW SCHEMAS;
+
+    * Listing databases whose name starts with 'test' using SHOW SCHEMAS
+        - SHOW SCHEMAS LIKE 'test%';
+
+    * Using SELECT...FROM (SQL Server)
+        - In MS SQL Server, the SELECT...FROM statement is used to list available databases.
+        - Syntax: SELECT * FROM sys.databases;
+
+    * Listing all available databases in SQL Server
+        - SELECT * FROM sys.databases;
+
+    * Using EXEC sp_databases (SQL Server)
+        - In MS SQL Server, the EXEC sp_databases statement can be used to list available databases.
+        - Syntax: EXEC sp_databases;
+    
+    * Listing all available databases using EXEC sp_databases
+        - EXEC sp_databases;
+
+    Note: Depending on the SQL system (MySQL or SQL Server), different commands are used to list available databases. The examples provide insights into both MySQL and MS SQL Server approaches.

@@ -1,0 +1,27 @@
+SQL Expressions
+---------------
+    * In SQL, an expression is a combination of values, operators, and functions that evaluates to a single value. 
+    These expressions are commonly used in the WHERE clause of SQL statements to filter records based on specific conditions.
+
+
+    * Basic Syntax
+        SELECT column1, column2, columnN
+        FROM table_name
+        WHERE [CONDITION|EXPRESSION];
+
+
+    * Types of SQL Expressions
+        1.Boolean Expressions : Check for equality or use logical operators.
+            - Return TRUE, FALSE, or UNKNOWN;
+            SELECT * FROM CUSTOMERS WHERE SALARY = 10000;
+
+        2.Numeric Expressions
+            - Use arithmetic operators for mathematical operations.
+            - Operands must be numerals, and the result is always a number.
+            SELECT 15 + 6;
+            SELECT AVG(SALARY) FROM EMPLOYEES;
+
+        3.Date Expressions
+            - Used to compare date-related values with the current system date and time.
+            SELECT CURRENT_TIMESTAMP;
+            SELECT * FROM ORDERS WHERE DATE < '2008-06-01';

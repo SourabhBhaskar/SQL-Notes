@@ -1,0 +1,37 @@
+Boolean Data Type in SQL
+------------------------
+    
+    * Introduction
+        - A Boolean is a universal data type used in SQL to store true or false values. 
+        - It is commonly employed when defining a variable in a table column. 
+        - The BOOLEAN data type is used to represent these true or false values.
+
+    * Boolean in MySQL
+        - MySQL provides various options for handling Boolean data. 
+        - You can use BOOL, BOOLEAN, or TINYINT to represent Boolean values. 
+        - Internally, MySQL converts BOOL or BOOLEAN into TINYINT, where TRUE is represented as 1 and FALSE as 0.
+
+    * Boolean in MS SQL Server:
+        - MS SQL Server does not have a direct BOOLEAN data type. Instead, you can use the BIT data type to represent Boolean values. 
+        - Here, 0 represents FALSE, 1 represents TRUE, and NULL can be used for an unknown value.
+
+    * Filtering Boolean Data
+        - You can filter data based on Boolean columns in SQL. For instance:
+        - MySQL : SELECT * FROM CARS WHERE IsRed = TRUE;
+        - SQL   : SELECT * FROM CARS WHERE IsRed = 1;
+    
+    * Negating Boolean Conditions
+        - Negate Boolean conditions to find records that are NOT TRUE. For example:
+        - MySQL : SELECT * FROM CARS WHERE IsRed = 0;
+        - SQL   : SELECT * FROM CARS WHERE IsRed = FALSE;
+    
+    * Working with NULL Values
+        - Handle NULL values in Boolean columns using IS NULL or IS NOT NULL condition in both MySQL and SQL Server. For example:
+        - Finding cars with unspecified availability
+            SELECT * FROM CARS WHERE IsAvailable IS NULL;
+        - Finding cars with specified availability
+            SELECT * FROM CARS WHERE IsAvailable IS NOT NULL;
+        - Updating Boolean Values
+            Update Boolean values using the UPDATE statement. For example:
+            MySQL: UPDATE CARS SET IsRed = TRUE WHERE ID = 123;
+            SQL  : UPDATE CARS SET IsRed = 1 WHERE ID = 123;

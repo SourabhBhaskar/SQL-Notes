@@ -1,0 +1,22 @@
+SQL INSERT INTO... SELECT statement
+-----------------------------------
+
+    * Definition
+        - The SQL INSERT INTO... SELECT statement is used to add or insert one or more new rows from an existing table to another table. 
+        - It combines the INSERT INTO and SELECT statements.
+    
+    * Syntax
+        INSERT INTO BUYERS SELECT * FROM CUSTOMERS;
+    
+    * Note
+        - The SQL INSERT INTO... SELECT statement adds or inserts rows from a source table to a target table.
+        - The source and target tables must have the same structure.
+        - Constraints and data types of the source data should match the target table.
+        - It's essential to ensure that the data being inserted satisfies the constraints of the target table.
+        - You can use a WHERE clause to filter specific records while copying.
+        - The LIMIT clause can be used to insert a specific number of rows (e.g., top N rows) from the source table.
+        - The SQL INSERT INTO... SELECT statement is a useful way to copy data between tables efficiently.
+
+
+
+

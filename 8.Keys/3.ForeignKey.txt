@@ -20,7 +20,8 @@ SQL Foreign Key
         );
 
     * Dropping an SQL Foreign Key
-        - ALTER TABLE ORDERS DROP FOREIGN KEY orders_customer_fk;
+        - ALTER TABLE ORDERS DROP FOREIGN KEY fk_key;
+        - ALTER TABLE orders DROP CONSTRAINT fk_key;
 
     * Foreign Key Constraints
         - Foreign Key constraints can be added during table creation or altered later using the ALTER TABLE statement.
@@ -29,7 +30,8 @@ SQL Foreign Key
         FOREIGN KEY (CUSTOMER_ID) REFERENCES CUSTOMERS(ID);
 
     * Dropping a Foreign Key Constraint
-        - ALTER TABLE ORDERS DROP FOREIGN KEY orders_customer_fk;
+        - ALTER TABLE ORDERS DROP FOREIGN KEY fk_key;
+        - ALTER TABLE orders DROP CONSTRAINT fk_key;
     
     * Cascade Delete
         - When a record with a Foreign Key is deleted, the CASCADE option automatically deletes related records in the child table.

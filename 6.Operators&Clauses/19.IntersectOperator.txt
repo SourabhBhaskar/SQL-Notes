@@ -1,0 +1,20 @@
+SQL INTERSECT Operator
+----------------------
+    
+    * Definition
+        - The INTERSECT operator in SQL is used to combine the result sets of two SELECT statements and retrieve only the common rows between them. 
+        - It returns distinct rows that appear in both result sets.
+
+    * Syntax
+        - column1, column2, ...: Columns selected from the tables participating in the INTERSECT.
+        - table1, table2, ...: Tables from which data is selected.
+        SELECT column1, column2, ... FROM table1
+        INTERSECT
+        SELECT column1, column2, ... FROM table2;
+
+    * Notes
+        - Column Count and Data Types: The number of columns and their data types must be the same in both SELECT statements involved in the INTERSECT operation.
+        - Column Aliasing: It's common to use column aliases to ensure that the result set has meaningful column names.
+
+
+

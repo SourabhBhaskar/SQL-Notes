@@ -1,0 +1,37 @@
+SQL Composite Key
+-----------------
+
+    * Definition
+        - SQL Composite Key is a key defined on two or more columns in a table to uniquely identify records.
+        - Also known as a Primary Key created on multiple columns.
+    
+    * Use Cases
+        - Necessary when a table lacks a single column for unique identification.
+        - Combination of columns used to ensure distinct and identifiable records.
+
+    * Features
+        - Created by combining more than one Candidate Key.
+        - Each Candidate Key may or may not be a Foreign Key.
+        - If all columns in the Composite Key are Foreign Keys, it's known as a Compound Key.
+        - Cannot be NULL; individual columns must not contain NULL values.
+        - Individual columns can have duplicate values, but the combination must be unique.
+    
+    * Syntax
+        CREATE TABLE CUSTOMERS(
+            ID INT NOT NULL,
+            NAME VARCHAR (20) NOT NULL,
+            AGE INT NOT NULL,
+            ADDRESS CHAR (25),
+            SALARY DECIMAL (18, 2),       
+            CONSTRAINT ck_customers 
+            PRIMARY KEY (ID, NAME)
+        );
+
+    * Dropping Composite Key in MySQL
+        ALTER TABLE table_name DROP PRIMARY KEY;
+    
+    * Dropping Composite Key in SQL Server:
+        ALTER TABLE table_name DROP composite_key_name;
+
+
+    

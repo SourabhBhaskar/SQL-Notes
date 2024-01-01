@@ -1,0 +1,26 @@
+SQL SELECT Statement
+-------------------
+
+    * Definition
+        - The SQL SELECT Statement is used to fetch data from a database table, returning the result in the form of a table (result-set).
+    
+    *Syntax:
+        1. Specific columns
+            SELECT id, name, salary FROM customers;
+        2. All columns
+            SELECT * FROM customers;
+
+
+    * Computing Using SELECT
+        SELECT 56 * 65;
+    
+    * Aliasing a Column in SELECT Statement:
+        SELECT CONCAT(NAME,' ',AGE) AS DETAILS, ADDRESS FROM CUSTOMERS ORDER BY NAME;
+    
+    * Note
+        - The SELECT statement is fundamental for retrieving data from a table.
+        - It allows selecting specific columns or all columns using the Asterisk (*).
+        - Mathematical expressions and computations can be performed directly in the SELECT statement.
+        - Aliasing provides the ability to assign a more readable or meaningful name to a column or expression in the result-set.you can use the AS keyword for aliasing:
+                SELECT column_name AS alias_name FROM table_name;
+        

@@ -1,0 +1,48 @@
+SQL Alternate Key
+-----------------
+    * Definition
+        - SQL Alternate Keys are candidate keys not selected as the primary key.
+        - Used to uniquely identify a tuple or record in a table.
+    
+    * Syntax
+        - No specific query or syntax to set an alternate key.
+        - It's a column that's a close second candidate for primary key selection.
+    
+    * Use Case
+        - Table: CUSTOMERS with columns ID, NAME, AGE, AADHAAR_ID, MOBILE_NO, SALARY.
+        - Candidate Keys: ID, AADHAAR_ID, MOBILE_NO.
+        - If ID is the primary key, AADHAAR_ID and MOBILE_NO are alternate keys.
+    
+    * Features
+        - Does not allow duplicate values.
+        - A table can have more than one alternate key.
+        - Can contain NULL values unless NOT NULL constraint is set.
+        - All alternate keys can be candidate keys, but not all candidate keys can be alternate keys.
+        - The primary key, also a candidate key, cannot be considered as an alternate key.
+    
+    * Example Table Creation
+        CREATE TABLE CUSTOMERS(
+            ID INT,
+            NAME VARCHAR (20),
+            AGE INT,
+            AADHAAR_ID BIGINT,
+            MOBILE_NO BIGINT,
+            SALARY DECIMAL (18, 2),
+            PRIMARY KEY(ID)      
+        );
+
+    * Candidate Key
+        - Subset of super keys uniquely identifying records.
+        - Includes primary keys, alternate keys, and foreign keys.
+    
+    * Primary Key
+        - Main key for retrieving records.
+        - Uniquely identifies each record in a table.
+    
+    * Foreign Key
+        - Primary key of one table serving as a foreign key in another.
+        - Values in foreign key field must match primary key values.
+    
+    * Alternate Key
+        - Candidate key that is not selected as the primary key.
+        - Uniquely identifies records in a table.

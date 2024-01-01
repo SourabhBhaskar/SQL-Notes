@@ -1,0 +1,68 @@
+* DBA
+    - A person who has central control of both the data and the programs that access those data.
+    - A Database Administrator (DBA) is a professional responsible for managing and ensuring the optimal performance, security, 
+    and integrity of a database management system (DBMS).
+
+
+* Data
+    - Data is a collection of raw bits and bytes without inherent meaning
+    - It's type 
+        1. Quantitative Data : Numeric data that represents quantities and can be measured and counted. Height, weight, temperature etc.
+        2. Qualitative Data : Non-numeric data that describes qualities or characteristics and cannot be easily measured. Color, taste, opinion etc.
+
+* Information 
+    - Proccessed data is information that is meaningful. 
+
+
+* Database
+    - A database is an electronic system designed for the efficient storage, processing, and management of data, enabling easy access and retrieval
+
+
+* DBMS 
+    - DBMS is software for efficiently storing, retrieving, and managing data in databases.
+
+
+* View of Data (Three Schema Architecture)
+    - It enables multiple users to access the same data with a personalized view while storing the underlying data only once.
+    1. Physical/Internal Level  : Describes data storage details, such as storage allocation, compression, and encryption. It is for DBA.
+    2. Logical/Conceptual Level : Represents the overall database design at a conceptual level. It is for backend developers.
+    3. View/External Level      : Provides personalized views for user groups, allowing multiple accesses to the same data stored once. It is for frontend developers.
+
+
+* Instances
+    - The collection of information stored in the DB at a particular moment is called an instance of DB.
+
+
+* Data Model
+    - Conceptual representation of data organization and relationships.
+    - Example: ER model for a university with entities like "Student" and relationships like "Enrolls In."
+
+
+* Schema
+    - Specific implementation detailing database organization and structure.
+    - Example: Physical instantiation of the university ER model with tables like "StudentTable" and fields like "StudentID."
+
+
+* DBMS Languages
+    1. DDL (Data Definition Language):
+        - Purpose: Defines and manages database structure.
+        - Example: CREATE TABLE Students (ID INT, Name VARCHAR(50));
+    
+    2. DML (Data Manipulation Language):
+        - Purpose: Manages and manipulates data.
+        - Example: SELECT * FROM Students WHERE ID = 1;
+    
+    3. DCL (Data Control Language):
+        - Purpose: Controls data access and privileges.
+        - Example: GRANT SELECT ON Students TO User1;
+
+
+* DBMS Application Architecture
+    1. Single-Tier Architecture              : Frontend, backend, and database are all on the same machine.
+    2. Two-Tier Architecture (Client-Server) : Frontend on one machine (client), backend and database on another (server).
+    3. Three-Tier Architecture               : Frontend on one machine, backend on a separate server, and database on another server.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+

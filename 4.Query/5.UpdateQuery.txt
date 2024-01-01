@@ -1,0 +1,32 @@
+SQL UPDATE Statement
+-------------------
+
+    * Definition
+        - The SQL UPDATE statement is utilized to modify existing records in a table. 
+        - It is a crucial part of Data Manipulation Language (DML), 
+        focusing solely on altering the data within a table without affecting its structure.
+
+    * Syntax
+        UPDATE table_name
+        SET column1 = value1, column2 = value2, ..., columnN = valueN
+        WHERE [condition];
+        table_name: The name of the table to be updated.
+        - column1, column2, ..., columnN: The columns to be updated.
+        - value1, value2, ..., valueN: The new values assigned to the specified columns.
+        - WHERE [condition]: An optional clause specifying the conditions that must be met for the update to occur. If omitted, all rows in the table will be affected.
+
+    * Update Multiple Rows and Columns
+        - Multiple rows and columns in a table can be updated using the SQL UPDATE statement. 
+        - Use the WHERE clause to filter the rows to be updated, and assign new values to the desired columns.
+        UPDATE CUSTOMERS
+        SET AGE = AGE + 5, SALARY = SALARY + 3000;
+
+
+    * Note
+        - Exercise caution while using the SQL UPDATE statement, ensuring that the WHERE clause is appropriately set to update the desired records. 
+        - Failure to do so may result in unintended modifications to the entire table.
+
+
+
+
+

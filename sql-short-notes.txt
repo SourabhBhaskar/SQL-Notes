@@ -1,0 +1,187 @@
+
+CREATE DATABASE testDB : Creates a new database named "testDB."
+DROP DATABASE testDB   : Deletes a database
+SHOW DATABASES         : Retrieves list of all available databases.
+USE testDB             : Sets the active or current database context to "testDB"
+
+
+Queries
+-------
+    1. INSERT INTO
+        - It is used to add new rows of data into a table in the database.
+        1. With column name                       : INSERT INTO customers(id, name, age) VALUES (1, 'Sourabh', 21)
+        2. Without column name                    : INSERT INTO customers VALUES (1, 'Sourabh', 21);
+        3. Copy whole all column of another table : INSERT INTO customers1 TABLE customers2
+
+    2. INSERT INTO ...SELECT
+        - It is used to add new rows of data into a table in the database after populating select query
+        1. Copy specific column of another table  : INSERT INTO customers1(id, name) SELECT id, name FROM customers2
+        2. Copy whole all column of another table : INSERT INTO customers1 SELECT * FROM customers2
+
+    3. SELECT
+        - The SQL SELECT Statement is used to fetch data from a database table, returning the result in the form of a table (result-set).
+        1. Specific columns : SELECT id, name, salary FROM customers;
+        2. All columns      : SELECT * FROM customers;
+
+    4. SELECT INTO
+        - The SQL SELECT INTO Statement creates a new table and inserts data from an existing table into the newly created table.
+        1. Copying all columns      : SELECT * INTO CUSTOMER_BACKUP FROM CUSTOMERS;
+        2. Copying specific columns : SELECT name, age, address INTO CUSTOMER_DETAILS FROM CUSTOMERS;
+
+    5. UPDATE
+        - The SQL UPDATE statement is utilized to modify existing records in a table. 
+        1. Update one record       : UPDATE customers SET id = 2 WHERE id = 1;
+        2. Update multiple records : UPDATE customers SET state = 'UP' WHERE state = 'MP';
+        2. Update all records      : UPDATE customers SET age = 20
+
+    6. DELETE 
+        - The SQL DELETE statement is used to delete one or more than one or all records from table
+        1. Delete one record       : DELETE FROM customers WHERE id = 1;
+        2. Delete multiple records : DELETE FROM customers WHERE state = 'MP';
+        3. Delete all records      : DELETE FROM customers
+
+
+
+Operators & clause
+------------------
+
+    1. WHERE
+        - Used to filter records based on specified conditions.
+        SELECT name FROM customers WHERE salary > 2000
+
+    2. TOP
+        - Retrieves a specific number of rows from the beginning of a result set.
+        SELECT TOP 4 FROM customers
+
+    3. LIMIT
+        - Limits the number of rows returned in a result set.
+        SELECT * FROM customers LIMIT 4
+
+    4. DISTINCT
+        - Retrieves unique values from a specified column.
+        SELECT DISTINCT salary FROM customers
+
+    5. ORDER BY
+        - Sorts the result set based on specified columns and order (ASC or DESC).
+        SELECT * FROM CUSTOMERS ORDER BY NAME ASC
+
+    6. GROUP BY
+        - Groups rows that have the same values in specified columns, often used with aggregate functions.
+        SELECT salary, COUNT(name) FROM customers GROUP BY salary
+
+    7. HAVING
+        - Filters the results of a GROUP BY based on specified conditions.
+        SELECT address, age, COUNT(address) as count FROM customers GROUP BY address, age HAVING count >= 1
+
+    8. OR
+        - Retrieves records where at least one of the specified conditions is true.
+        SELECT ID, NAME, SALARY FROM CUSTOMERS WHERE SALARY > 2000 OR AGE < 25
+
+    9. AND
+        - Retrieves records where all of the specified conditions are true.
+        SELECT ID, NAME, SALARY FROM CUSTOMERS WHERE SALARY > 2000 AND AGE < 25
+
+    10. BOOLEAN/BIT
+        - Represents true or false values.
+        SELECT * FROM CARS WHERE IsRed = TRUE or SELECT * FROM CARS WHERE IsRed = 1
+
+    11. LIKE
+        - Searches for a specified pattern in a column.
+        SELECT * FROM CUSTOMERS WHERE SALARY LIKE '200%'
+
+    12. IN
+        - Specifies multiple values for a WHERE clause.
+        SELECT * FROM CUSTOMERS WHERE NAME IN ('Khilan', 'Hardik', 'Muffy')
+
+    13. ANY
+        - Compares a value to any value in a subquery.
+        WHERE SALARY > ANY (SELECT SALARY FROM CUSTOMERS WHERE AGE = 32)
+
+    14. ALL
+        - Compares a value to all values in a subquery.
+        WHERE SALARY > ALL (SELECT SALARY FROM CUSTOMERS WHERE AGE = 32)
+
+    15. EXISTS
+        - Tests for the existence of any record in a subquery.
+        SELECT * FROM CUSTOMERS WHERE EXISTS (SELECT PRICE FROM CARS WHERE CARS.ID = CUSTOMERS.ID AND PRICE > 2000000)
+
+    16. CASE
+        - Performs conditional logic within a query.
+        SELECT *, CASE WHEN SALARY < 4500 THEN (SALARY + SALARY * 25/100) END AS INCREMENT FROM CUSTOMERS
+
+    17. NOT
+        - Negates a condition in a WHERE clause.
+        SELECT * FROM CUSTOMERS WHERE NOT (SALARY > 2000.00)
+
+    18. <>/!=
+        - Checks for inequality between two values.
+        SELECT * FROM CUSTOMERS WHERE NAME <> 'Ramesh'
+
+    19. IS NULL
+        - Filters records where a specified column is NULL.
+        SELECT * FROM CUSTOMERS WHERE ADDRESS IS NULL
+
+    20. IS NOT NULL
+        - Filters records where a specified column is not NULL.
+        SELECT * FROM CUSTOMERS WHERE ADDRESS IS NOT NULL
+
+    21. BETWEEN
+        - Retrieves data within a specified range (inclusive).
+        SELECT * FROM CUSTOMERS WHERE AGE BETWEEN 20 AND 25
+
+
+    22. UNION
+        - Combines the result of two queries and returns distinct result.
+        SELECT column1, column2, ... FROM table1
+        UNION
+        SELECT column1, column2, ... FROM table2;
+
+    23. UNION ALL
+        - Combines the result of two queries and returns result but not distinct.
+        SELECT column1, column2, ... FROM table1
+        UNION ALL
+        SELECT column1, column2, ... FROM table2;
+
+    24. INTERSECT
+        - Combines the result of two queries and returns common result.
+        SELECT column1, column2, ... FROM table1
+        INSERSECT
+        SELECT column1, column2, ... FROM table2;
+    
+    25. ALIASES 
+        - Aliases in SQL are temporary names assigned to tables or columns in a query. 
+        SELECT C.ID, C.NAME, C.AGE, O.AMOUNT 
+        FROM CUSTOMERS AS C, ORDERS AS O
+        WHERE  C.ID = O.CUSTOMER_ID;
+
+
+
+
+SQL Joins
+---------
+    1. JOIN 
+        - 
+        SELECT ID, NAME, AGE, AMOUNT FROM CUSTOMERS JOIN ORDERS ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID;
+    
+    2. INNER JOIN
+        - 
+        SELECT ID, NAME, AGE, AMOUNT FROM CUSTOMERS INNER JOIN ORDERS ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID;
+    
+    3. LEFT JOIN 
+        - 
+        SELECT ID, NAME, AGE, AMOUNT FROM CUSTOMERS LEFT JOIN ORDERS ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID;
+    
+    4. RIGHT JOIN
+        - 
+        SELECT ID, NAME, AGE, AMOUNT FROM CUSTOMERS RIGHT JOIN ORDERS ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID;
+
+    5. FULL JOIN
+        - 
+        SELECT ID, NAME, AGE, AMOUNT FROM CUSTOMERS FULL JOIN ORDERS ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID;  
+    
+    6. CROSS JOIN
+        - 
+        SELECT ID, NAME, AMOUNT FROM CUSTOMERS CROSS JOIN ORDERS;
+
+
+    

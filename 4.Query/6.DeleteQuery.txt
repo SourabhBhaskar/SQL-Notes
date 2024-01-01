@@ -1,0 +1,22 @@
+* SQL DELETE Statement
+    
+    * Definition
+        - The SQL DELETE Statement is employed to remove records from an existing table. 
+        - When deleting specific records, the WHERE clause is used with the DELETE statement. 
+        - If the DELETE statement is executed without a WHERE clause, it will delete all records from the table.
+
+    * Syntax
+        DELETE FROM table_name WHERE [condition];
+        - table_name: The name of the table from which records will be deleted.
+        - WHERE [condition]: An optional clause specifying conditions for deleting specific records. If omitted, all records in the table are deleted.
+
+    * Delete specific record
+        DELETE FROM customers WHERE name = 'Farjana';
+    
+    * Delete multiple records;
+        DELETE FROM customers WHERE state = 'MP';
+
+    * Delete all records;
+        DELETE FROM customers;
+
+    

@@ -1,0 +1,20 @@
+SQL comments
+------------
+    
+    * Overview
+        - Comments in programming languages provide additional information, aiding in code understanding without affecting functionality.
+        - In SQL, comments explain query sections or skip statement execution.
+    
+    * Types of SQL Comments
+        1. Single-line comments : Start with two consecutive hyphens (--) and extend to the end of the line.
+            -- This is a single-line comment
+
+        2. Multi-line comments  : Start with /* and end with */.
+            - Ignore and comment out multiple lines or a block of SQL code.
+            /* This is a
+            multi-line
+            comment */
+    
+    * Notes
+        - SQL comments enhance code readability and can be single-line (--) or multi-line (/*...*/).
+        - Single-line comments extend to the end of the line, while multi-line comments can span multiple lines or blocks of code.

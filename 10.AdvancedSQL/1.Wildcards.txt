@@ -1,0 +1,36 @@
+SQL Wildcards
+-------------
+    
+    * Overview
+        - SQL Wildcards are special characters used with the LIKE operator to search for specific patterns in strings or compare various strings.
+        - The LIKE operator is case-sensitive, matching only strings with the exact case as the specified pattern.
+    
+    * Commonly Used Wildcards
+        1. Percent Sign (%) : Matches one or more characters.
+        2. Underscore (_)   :  Matches one character.
+
+    * Syntax
+        SELECT * FROM table_name
+        WHERE column_name LIKE [wildcard_pattern];
+        - Combine conditions using AND or OR operators.
+        - [wildcard_pattern] can represent any numeric or string value.
+    
+    * Examples
+        - Finds values starting with 200.
+        WHERE SALARY LIKE '%200%'
+
+        - Finds values with 200 in any position.
+        WHERE SALARY LIKE '_00%'
+
+        - Finds values with 00 in the second and third positions.
+        WHERE SALARY LIKE '2_%_%'
+
+        - Finds values starting with 2 and at least 3 characters long.
+        WHERE SALARY LIKE '%2'
+
+        - Finds values ending with 2.
+        WHERE SALARY LIKE '_2%3'
+
+        - Finds values with a 2 in the second position and ending with 3.
+        WHERE SALARY LIKE '2___3'
+

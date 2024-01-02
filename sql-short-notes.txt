@@ -1,8 +1,119 @@
 
-CREATE DATABASE testDB : Creates a new database named "testDB."
-DROP DATABASE testDB   : Deletes a database
-SHOW DATABASES         : Retrieves list of all available databases.
-USE testDB             : Sets the active or current database context to "testDB"
+
+
+
+Table 
+-----
+    1. CREATE TABLE 
+        - The CREATE TABLE statement is used to create a new table in a database.  
+        CREATE TABLE table_name(
+            column1 DATATYPE,
+            column2 DATATYPE,
+            ....
+        )
+    
+    2. SHOW TABLES
+        - In MySQL, you can use the SHOW TABLES statement to list all the tables in the current database. 
+        SHOW TABLES;
+
+    3. RENAME TABLE 
+        - This command renames the CUSTOMERS table to BUYERS. 
+        - You should ensure that there is no table with the new name already existing.
+        RENAME TABLE old_name TO new_name
+
+    4. ALTER TABLE... RENAME TO
+        - This command renames the CUSTOMERS table to BUYERS. 
+        - You should ensure that there is no table with the new name already existing.
+        ALTER TABLE old_name RENAME TO new_name
+
+    5. TRUNCATE TABLE
+        - It Removes all rows from a table, regardless of conditions.
+        TRUNCATE TABLE table_name
+
+    6. CREATE TABLE... SELECT
+        - It makes a simple cloning.
+        CREATE TABLE new_table SELECT * FROM old_table;
+
+    7. CREATE TABLE... LIKE
+        - It makes a shallow cloning.
+        CREATE TABLE new_table LIKE old_table;
+
+    8. CREATE TABLE... INSERT INTO
+        - It makes a deep cloning.
+        CREATE TABLE new_table LIKE old_table;
+        INSERT INTO new_table SELECT * FROM old_table;
+
+    9. TEMPORARY
+        - It creates temporary table
+        CREATE TEMPORARY TABLE table_name...
+    
+    10. ALTER TABLE
+        - Modifies the structure of a table.
+        ALTER TABLE table_name [alter_option...]
+
+    11. DROP TABLE 
+        - Removes a table's definition, data, indexes, triggers, constraints, and permissions associated with the table.  
+        DROP TABLE table_name
+
+    12. DELETE TABLE 
+        - Removes all the rows from table.
+        DELETE TABLE table_name
+
+    13. DELETE TABLE... WHERE
+        - Removes specific rows from table.
+        DELETE TABLE table_name WHERE condition
+    
+    14. constraints
+        - Rules applied to data columns or entire tables.
+        1.NOT NULL Constraint
+            -Ensures a column cannot have a NULL value.
+            CREATE TABLE CUSTOMERS (
+                ID INT NOT NULL,
+            );
+
+        2.UNIQUE Key Constraint    
+            - Ensures a column accepts only UNIQUE values.
+            CREATE TABLE CUSTOMERS (
+                ID INT UNIQUE,
+            );
+
+        3.DEFAULT Value Constraint
+            - Provides a default value for a column if not specified.
+            CREATE TABLE CUSTOMERS (
+                NAME VARCHAR (20) DEFAULT 'Not Available'
+            );
+
+        4.PRIMARY Key Constraint   
+            - Ensures a column accepts only UNIQUE values; uniquely identifies a record.
+            CREATE TABLE CUSTOMERS (
+                ID INT,
+                PRIMARY KEY (ID)
+            );
+
+        5.FOREIGN Key Constraint   
+            - Maps a column to another table; uniquely identifies a record.
+            CREATE TABLE ORDERS (
+                ID INT NOT NULL,
+                CUSTOMER_ID INT FOREIGN KEY REFERENCES CUSTOMERS(ID),
+            );
+
+        6.CHECK Value Constraint
+            - Validates data entered into a column based on specified conditions.
+            CREATE TABLE CUSTOMERS (
+                ID INT NOT NULL,
+                AGE INT CHECK(AGE>=18),
+            );
+
+        7.INDEX Constraint
+            - Speeds up data retrieval; can be Unique or Non-Unique.
+            CREATE INDEX idx_age ON CUSTOMERS ( AGE );
+        
+        8.Dropping Constraints
+            ALTER TABLE table_name DROP CONSTRAINT constraint_name;
+            ALTER TABLE CUSTOMERS DROP CONSTRAINT PRIMARY KEY;
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 
 Queries
@@ -39,6 +150,8 @@ Queries
         1. Delete one record       : DELETE FROM customers WHERE id = 1;
         2. Delete multiple records : DELETE FROM customers WHERE state = 'MP';
         3. Delete all records      : DELETE FROM customers
+-----------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 
@@ -153,6 +266,7 @@ Operators & clause
         SELECT C.ID, C.NAME, C.AGE, O.AMOUNT 
         FROM CUSTOMERS AS C, ORDERS AS O
         WHERE  C.ID = O.CUSTOMER_ID;
+-----------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -182,6 +296,31 @@ SQL Joins
     6. CROSS JOIN
         - 
         SELECT ID, NAME, AMOUNT FROM CUSTOMERS CROSS JOIN ORDERS;
+-----------------------------------------------------------------------------------------------------------------------------------------
 
 
-    
+
+
+Advanced SQL
+-----------
+
+    1. Wilecard
+        - A wildcard is a placeholder character used in string matching for the purpose of searching patterns.
+        - It is case-sensitive.     
+        - % : It determines where the search should start, end, or include characters in the middle.
+            In start  : SELECT * FROM customers WHERE name LIKE 'p%';
+            In end    : SELECT * FROM customers WHERE name LIKE '%p';
+            In middle : SELECT * FROM customers WHERE name LIKE '%k%';
+        - _ : It is used to represent a single character in a string.
+            In second place from start : SELECT * FROM customers WHERE name LIKE '_a%';
+            In second place from end   : SELECT * FROM customers WHERE name LIKE '%a_';
+
+    2. Comments
+        - Queries insdie comments dont execute.
+        - Single line comment : -- queries
+        - Multi line comment  : /* queries */
+
+    3. MIN/MAX Functions
+        - Finds min or max values from a set
+        SELECT MIN(SALARY) FROM CUSTOMERS;
+        SELECT MAX(SALARY) FROM CUSTOMERS;

@@ -7,12 +7,12 @@ Table Creation Simplified
         - The CREATE TABLE statement is used to create a new table in a database. 
         - It defines the structure of the table, including the names of columns, their data types, and any constraints.
             CREATE TABLE CUSTOMERS (
-            ID INT NOT NULL,
-            NAME VARCHAR(20) NOT NULL,
-            AGE INT NOT NULL,
-            ADDRESS CHAR(25),
-            SALARY DECIMAL(18, 2),
-            PRIMARY KEY (ID)
+                ID INT NOT NULL,
+                NAME VARCHAR(20) NOT NULL,
+                AGE INT NOT NULL,
+                ADDRESS CHAR(25),
+                SALARY DECIMAL(18, 2),
+                PRIMARY KEY (ID)
             );
 
     * Verification
@@ -20,14 +20,14 @@ Table Creation Simplified
             DESC CUSTOMERS;
 
     * CREATE TABLE IF NOT EXISTS
-        - To avoid errors when trying to create a table that already exists, you can use the IF NOT EXISTS clause:
+        - To avoid errors when trying to create a table that already exists, you can use the IF NOT EXISTS clause
             CREATE TABLE IF NOT EXISTS CUSTOMERS (
-            ID INT NOT NULL,
-            NAME VARCHAR(20) NOT NULL,
-            AGE INT NOT NULL,
-            ADDRESS CHAR(25),
-            SALARY DECIMAL(18, 2),
-            PRIMARY KEY (ID)
+                ID INT NOT NULL,
+                NAME VARCHAR(20) NOT NULL,
+                AGE INT NOT NULL,
+                ADDRESS CHAR(25),
+                SALARY DECIMAL(18, 2),
+                PRIMARY KEY (ID)
             );
 
     * Creating a Table from an Existing Table

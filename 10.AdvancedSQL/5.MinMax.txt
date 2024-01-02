@@ -1,0 +1,22 @@
+SQL MIN() and MAX() Functions
+----------------------------
+    
+    * Overview
+        - SQL aggregate functions used to compare values in a set and retrieve the minimum and maximum values, respectively.
+    
+    * Usage
+        1. As Functions  : Used with the GROUP BY clause of the SELECT statement.
+        2. As Expressions: Used with a subquery and HAVING clause of the SELECT statement.
+    
+    * Syntax
+        MIN(column_name);
+        MAX(column_name);
+
+    * Examples
+        SELECT MIN(SALARY) FROM CUSTOMERS;
+        SELECT MAX(SALARY) FROM CUSTOMERS;
+
+    * Summary
+        - MIN() and MAX(): Aggregate functions for finding the minimum and maximum values in a set.
+        - Usage: With GROUP BY, HAVING, or in subqueries.
+        - Aliases: Can be used to provide meaningful names for result columns.

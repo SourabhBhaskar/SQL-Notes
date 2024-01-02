@@ -10,5 +10,6 @@ TRUNCATE TABLE
         TRUNCATE TABLE table_name;
 
     * TRUNCATE vs DELETE:
-    DELETE: Removes one or more rows from a table based on the conditions specified in a WHERE Clause. It is a DML (Data Manipulation Language) command and requires a manual COMMIT after making changes.
+        DELETE: Removes one or more rows from a table based on the conditions specified in a WHERE Clause. 
+        It is a DML (Data Manipulation Language) command and requires a manual COMMIT after making changes.
 

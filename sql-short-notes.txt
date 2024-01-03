@@ -315,12 +315,100 @@ Advanced SQL
             In second place from start : SELECT * FROM customers WHERE name LIKE '_a%';
             In second place from end   : SELECT * FROM customers WHERE name LIKE '%a_';
 
+
+
+
     2. Comments
         - Queries insdie comments dont execute.
         - Single line comment : -- queries
         - Multi line comment  : /* queries */
 
+
+
+
     3. MIN/MAX Functions
         - Finds min or max values from a set
         SELECT MIN(SALARY) FROM CUSTOMERS;
         SELECT MAX(SALARY) FROM CUSTOMERS;
+
+
+
+
+
+    3. Null Functions
+        1. ISNULL()
+            - Returns 0 or 1 based on whether the expression is null or not.
+            SELECT SALARY, ISNULL(SALARY) AS Null_value;
+    
+        2. COALESCE()
+            - Returns the first non-NULL expression among its arguments.
+            SELECT NAME, SALARY, AGE, COALESCE(SALARY, AGE) AS Result;
+    
+        3. NULLIF() 
+            - Compares two expressions; returns NULL if they are the same, otherwise returns the first expression.
+            SELECT NAME, ADDRESS, NULLIF(NAME, ADDRESS) AS Result;
+    
+        4. IFNULL() Function
+            - Replaces NULL values with a specific value.
+            SELECT NAME, SALARY, IFNULL(SALARY, 5500) AS Result;
+
+
+
+
+    4. Check Constraint
+        - Adds conditions on a column to ensure data integrity.
+        CREATE TABLE table_name (
+            column_name data_type CHECK (condition)
+        );
+
+    
+
+
+    5. DEFAULT Constraint
+        - Specifies default values for columns during table creation.
+        CREATE TABLE table_name (
+            column1 datatype DEFAULT default_value,
+            column2 datatype DEFAULT default_value,
+            ...
+            columnN datatype
+        );
+
+
+    
+
+    6. Constraints
+        - In SQL, constraints are rules defined on tables to enforce data integrity. 
+
+        1. PRIMARY KEY Constraint : Uniquely identifies each record in a table.
+            CREATE TABLE table_name(
+                column_name DATATYPE,
+                PRIMARY KEY(column_name)
+            );
+
+        2. FOREIGN KEY Constraint : Establishes a link between two tables.
+            CREATE TABLE table_name(
+                column_name DATATYPE,
+                foreign_key_column DATATYPE,
+                CONSTRAINT foreign_key_constraint_name FOREIGN KEY(foreign_key_column) REFERENCES another_table_name(primary_key_column)
+            );
+            
+        3. UNIQUE Constraint : Ensures uniqueness of values in a column or a set of columns.
+            CREATE TABLE table_name (
+                column_name DATATYPE UNIQUE
+            );
+
+        4. CHECK Constraint : Specifies conditions that must be met for the data in a column.
+            CREATE TABLE table_name (
+                column_name DATATYPE CONSTRAINT check_contraint_name CHECK(conditions),
+            );
+
+
+        5. DEFAULT Constraint : Provides a default value for a column if no value is specified during insertion.
+            CREATE TABLE table_name (
+                column_name DATATYPE DEFAULT default_value,
+            );
+        
+        6. NOT NULL Constraint : Ensures that a column cannot have a NULL value.
+            CREATE TABLE table_name (
+                column_name DATATYPE NOT NULL,
+            );

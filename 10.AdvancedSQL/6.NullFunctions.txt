@@ -1,0 +1,27 @@
+SQL NULL Functions
+------------------
+
+    * Overview
+        - Placeholder in the database for absent or unavailable data.
+        - Not associated with any specific data type.
+        - Maintains uniform data types across columns.
+    
+    * ISNULL()
+        - Returns 0 or 1 based on whether the expression is null or not.
+        - Syntax: ISNULL(column_name)
+        - Example: SELECT SALARY, ISNULL(SALARY) AS Null_value;
+    
+    * COALESCE()
+        - Returns the first non-NULL expression among its arguments.
+        - Syntax: COALESCE(expression_1, expression_2, expression_n)
+        - Example: SELECT NAME, SALARY, AGE, COALESCE(SALARY, AGE) AS Result;
+    
+    * NULLIF()
+        - Compares two expressions; returns NULL if they are the same, otherwise returns the first expression.
+        - Syntax: NULLIF(expression_1, expression_2)
+        - Example: SELECT NAME, ADDRESS, NULLIF(NAME, ADDRESS) AS Result;
+    
+    * IFNULL()
+        - Replaces NULL values with a specific value.
+        - Syntax: IFNULL(column_name, value_to_replace)
+        - Example: SELECT NAME, SALARY, IFNULL(SALARY, 5500) AS Result;

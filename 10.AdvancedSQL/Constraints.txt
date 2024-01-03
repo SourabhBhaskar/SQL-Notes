@@ -1,0 +1,159 @@
+SQL Constraints Overview
+------------------------
+    * Overview
+        - In SQL, constraints are rules defined on tables to enforce data integrity. 
+        - They ensure that the data stored in a database follows certain conditions, maintaining accuracy, consistency, and relationships between tables. 
+
+    * Notes
+        - Constraint names should always be provided if there could be more than one constraint of the same type in a table.
+        - Constraint names are optional for constraints that are unique within a table.
+        - Naming a constraint is optional not mandatory.
+        - If a constraint name is not provided, the system generates a unique constraint name.
+        - Constraints can be dropped using their names.
+        - Constraints can be modified by using their names if modification is supported for the specific constraint type.
+
+
+
+
+PRIMARY KEY Constraint
+----------------------
+    * Purpose
+        - Uniquely identifies each record in a table.
+
+    * Characteristics
+        - No duplicate values allowed.
+        - Null values not allowed.
+
+    * Syntax
+        CREATE TABLE table_name(
+            column_name DATATYPE,
+            PRIMARY KEY(column_name)
+        );
+
+    * Notes
+        - There could be only one primary key constraint in a table.
+
+    * PRIMARY KEY Constraint to an Existing Column
+        - Adding constraint  : ALTER TABLE customers ADD PRIMARY KEY(column_name);
+        - Droping constraint : ALTER TABLE customers DROP PRIMARY KEY(column_name);
+    
+
+
+
+FOREIGN KEY Constraint
+----------------------
+    * Purpose
+        - Establishes a link between two tables.
+
+    * Characteristics
+        - References the primary key of another table.
+        - Ensures referential integrity.
+
+    * Notes
+        - In a table, There could be more than one key constraint.
+
+    * Syntax
+        CREATE TABLE table_name(
+            column_name DATATYPE,
+            foreign_key_column DATATYPE,
+            CONSTRAINT foreign_key_constraint_name FOREIGN KEY(foreign_key_column) REFERENCES another_table_name(primary_key_column)
+        );
+    
+    * FOREIGN KEY Constraint to an Existing Column   
+        - Adding constraint  : ALTER TABLE customers ADD CONSTRAINT foreign_key_constraint_name FOREIGN KEY(foreign_key_column) REFERENCES table_name(primary_key_column)
+        - Droping constraint : ALTER TABLE customers DROP CONSTRAINT foreign_key_constraint_name.
+
+
+
+
+UNIQUE Constraint
+-----------------
+    * Purpose
+        - Ensures uniqueness of values in a column or a set of columns.
+    
+    * Characteristics
+        - No duplicate values allowed.
+        - Allows at least one NULL value.
+
+    * Notes 
+        - In a table, There could be more than one unique constraint.
+
+    * Syntax
+        CREATE TABLE table_name (
+            column_name DATATYPE UNIQUE
+        );
+
+    * UNIQUE Constraint to an Existing Column   
+        - Adding constraint  : ALTER TABLE customers ADD CONSTRAINT unique_key_constraint_name UNIQUE(column1, column2, ...)
+        - Droping constraint : ALTER TABLE customers DROP CONSTRAINT unique_key_constraint_name.
+
+
+
+
+CHECK Constraint
+----------------
+    * Purpose
+        - Specifies conditions that must be met for the data in a column.
+    
+    * Characteristics
+        - Enforces data integrity based on specified conditions.
+
+    * Notes 
+        - In a table, There could be more than one check constraint.
+    
+    * Syntax:
+        CREATE TABLE table_name (
+            column_name DATATYPE CONSTRAINT check_contraint_name CHECK(conditions),
+        );
+
+    * CHECK Constraint to an Existing Column   
+        - Adding constraint  : ALTER TABLE customers ADD CONSTRAINT check_constraint_name CHECK(conditions)
+        - Droping constraint : ALTER TABLE customers DROP CONSTRAINT check_constraint_name. 
+
+
+
+DEFAULT Constraint
+------------------
+    * Purpose
+        - Provides a default value for a column if no value is specified during insertion.
+    
+    * Characteristics
+        - Default value assigned when not explicitly provided.
+
+    * Notes 
+        - This constraint is added by nature of SQL.
+        - We dont add it we just use and modify it.
+        - In a table, There could be more than one check constraint.
+        - You should provide DEFAULT keywords in the place of value if it not exists for it.
+    
+    * Syntax
+        CREATE TABLE table_name (
+            column_name DATATYPE DEFAULT default_value,
+        );
+    
+    * DEFAULT Constraint to an Existing Column   
+        - Modifying constraint : ALTER TABLE table_name ALTER COLUMN column_name SET DEFAULT new_default_value; 
+
+
+
+
+NOT NULL Constraint
+-------------------
+    * Purpose
+        - Ensures that a column cannot have a NULL value.
+    
+    * Characteristics
+        - Requires every record to have a value in that column.
+
+    * Notes
+        - This constraint is added by nature of SQL DATATYPE.
+        - We dont add it we just use and modify it.
+        - It is the default value of SQL DATATYPE that is NULL by default.
+    
+    * Syntax:
+        CREATE TABLE table_name (
+            column_name DATATYPE NOT NULL,
+        );
+
+    * NOT NULL Constraint to an Existing Column   
+        - Modifying constraint : ALTER TABLE table_name ALTER COLUMN column_name DATATYPE NOT NULL; 

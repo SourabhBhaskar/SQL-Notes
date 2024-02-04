@@ -4,152 +4,140 @@
 
 Table 
 -----
-    1. CREATE TABLE 
-        - The CREATE TABLE statement is used to create a new table in a database.  
-        CREATE TABLE table_name(
-            column1 DATATYPE,
-            column2 DATATYPE,
-            ....
-        )
-    
-    2. SHOW TABLES
-        - In MySQL, you can use the SHOW TABLES statement to list all the tables in the current database. 
-        SHOW TABLES;
+    1. Creating table
+        - Creating table
+            CREATE TABLE table_name(
+                column1 DATATYPE,
+                ....
+            )
+        - Create tabel if not exist
+            CREATE TABLE IF NOT EXISTS tabel_name(
+                column1 DATATYPE,
+                column2 DATATYPE,
+                ....
+            )
 
-    3. RENAME TABLE 
-        - This command renames the CUSTOMERS table to BUYERS. 
-        - You should ensure that there is no table with the new name already existing.
-        RENAME TABLE old_name TO new_name
+    2. Showing Tables
+        - It list all the tables from current database
+            SHOW TABLES;
 
-    4. ALTER TABLE... RENAME TO
-        - This command renames the CUSTOMERS table to BUYERS. 
-        - You should ensure that there is no table with the new name already existing.
-        ALTER TABLE old_name RENAME TO new_name
+    3. Renaming Table
+        - It renames a old tabel with new name if that's name table doesnot exist
+            RENAME TABLE old_name TO new_name;
 
-    5. TRUNCATE TABLE
+    5. Clearing Table
         - It Removes all rows from a table, regardless of conditions.
-        TRUNCATE TABLE table_name
+            TRUNCATE TABLE table_name
 
-    6. CREATE TABLE... SELECT
-        - It makes a simple cloning.
-        CREATE TABLE new_table SELECT * FROM old_table;
+    6. Cloning Table
+        - Simple cloning : Structure is copied, and data may be referenced.
+            CREATE TABLE new_table SELECT * FROM original_table;
+        - Shallow cloning : Structure and data are copied, but relationships might still reference the same data.
+            CREATE TABLE new_table LIKE original_table;
+        - Deep cloning : Both the structure and all the data are copied, creating an entirely independent table.
+            CREATE TABLE new_table LIKE original_table;
+            INSERT INTO new_table SELECT * FROM original_table;
 
-    7. CREATE TABLE... LIKE
-        - It makes a shallow cloning.
-        CREATE TABLE new_table LIKE old_table;
-
-    8. CREATE TABLE... INSERT INTO
-        - It makes a deep cloning.
-        CREATE TABLE new_table LIKE old_table;
-        INSERT INTO new_table SELECT * FROM old_table;
-
-    9. TEMPORARY
-        - It creates temporary table
-        CREATE TEMPORARY TABLE table_name...
+    8. Inserting Into Tabel
+        - It inserts new records into table
+            INSERT INTO table_name (column1, column2, column3, ...)
+            VALUES (value1, value2, value3, ...);
     
-    10. ALTER TABLE
+    9. Altering Tabel
         - Modifies the structure of a table.
-        ALTER TABLE table_name [alter_option...]
+            ALTER TABLE table_name [alter_option...]
+        - Column CRUD 
+            - Adding   : ALTER TABLE table_name ADD column_name datatype;
+            - Removing : ALTER TABLE table_name DROP COLUMN column_name;
+            - Renaming : ALTER TABLE table_name RENAME COLUMN old_column_name TO new_column_name;
+            - Updating 
+                - DataType modification : ALTER TABLE table_name MODIFY COLUMN column_name datatype;
 
-    11. DROP TABLE 
+    11. Delete Tabel
         - Removes a table's definition, data, indexes, triggers, constraints, and permissions associated with the table.  
-        DROP TABLE table_name
+            DROP TABLE table_name
 
-    12. DELETE TABLE 
+    12. Deleting From Tabel 
         - Removes all the rows from table.
-        DELETE TABLE table_name
+            DELETE TABLE table_name
+        - Removes specific rows from tabel
+            DELETE TABLE table_name WHERE condition
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    13. DELETE TABLE... WHERE
-        - Removes specific rows from table.
-        DELETE TABLE table_name WHERE condition
+
+
+
+constraints
+-----------
+    1.NOT NULL Constraint
+        -Ensures a column cannot have a NULL value.
+        CREATE TABLE CUSTOMERS (
+            ID INT NOT NULL,
+        );
+
+    2.UNIQUE Key Constraint    
+        - Ensures a column accepts only UNIQUE values.
+        CREATE TABLE CUSTOMERS (
+            ID INT UNIQUE,
+        );
+
+    3.DEFAULT Value Constraint
+        - Provides a default value for a column if not specified.
+        CREATE TABLE CUSTOMERS (
+            NAME VARCHAR (20) DEFAULT 'Not Available'
+        );
+
+    4.PRIMARY Key Constraint   
+        - Ensures a column accepts only UNIQUE values; uniquely identifies a record.
+        CREATE TABLE CUSTOMERS (
+            ID INT,
+            PRIMARY KEY (ID)
+        );
+
+    5.FOREIGN Key Constraint   
+        - Maps a column to another table; uniquely identifies a record.
+        CREATE TABLE ORDERS (
+            ID INT NOT NULL,
+            CUSTOMER_ID INT FOREIGN KEY REFERENCES CUSTOMERS(ID),
+        );
+
+    6.CHECK Value Constraint
+        - Validates data entered into a column based on specified conditions.
+        CREATE TABLE CUSTOMERS (
+            ID INT NOT NULL,
+            AGE INT CHECK(AGE>=18),
+        );
+
+    7.INDEX Constraint
+        - Speeds up data retrieval; can be Unique or Non-Unique.
+        CREATE INDEX idx_age ON CUSTOMERS ( AGE );
     
-    14. constraints
-        - Rules applied to data columns or entire tables.
-        1.NOT NULL Constraint
-            -Ensures a column cannot have a NULL value.
-            CREATE TABLE CUSTOMERS (
-                ID INT NOT NULL,
-            );
-
-        2.UNIQUE Key Constraint    
-            - Ensures a column accepts only UNIQUE values.
-            CREATE TABLE CUSTOMERS (
-                ID INT UNIQUE,
-            );
-
-        3.DEFAULT Value Constraint
-            - Provides a default value for a column if not specified.
-            CREATE TABLE CUSTOMERS (
-                NAME VARCHAR (20) DEFAULT 'Not Available'
-            );
-
-        4.PRIMARY Key Constraint   
-            - Ensures a column accepts only UNIQUE values; uniquely identifies a record.
-            CREATE TABLE CUSTOMERS (
-                ID INT,
-                PRIMARY KEY (ID)
-            );
-
-        5.FOREIGN Key Constraint   
-            - Maps a column to another table; uniquely identifies a record.
-            CREATE TABLE ORDERS (
-                ID INT NOT NULL,
-                CUSTOMER_ID INT FOREIGN KEY REFERENCES CUSTOMERS(ID),
-            );
-
-        6.CHECK Value Constraint
-            - Validates data entered into a column based on specified conditions.
-            CREATE TABLE CUSTOMERS (
-                ID INT NOT NULL,
-                AGE INT CHECK(AGE>=18),
-            );
-
-        7.INDEX Constraint
-            - Speeds up data retrieval; can be Unique or Non-Unique.
-            CREATE INDEX idx_age ON CUSTOMERS ( AGE );
-        
-        8.Dropping Constraints
-            ALTER TABLE table_name DROP CONSTRAINT constraint_name;
-            ALTER TABLE CUSTOMERS DROP CONSTRAINT PRIMARY KEY;
+    8.Dropping Constraints
+        ALTER TABLE table_name DROP CONSTRAINT constraint_name;
+        ALTER TABLE CUSTOMERS DROP CONSTRAINT PRIMARY KEY;
 -----------------------------------------------------------------------------------------------------------------------------------------
 
 
 
 
-Queries
--------
-    1. INSERT INTO
-        - It is used to add new rows of data into a table in the database.
-        1. With column name                       : INSERT INTO customers(id, name, age) VALUES (1, 'Sourabh', 21)
-        2. Without column name                    : INSERT INTO customers VALUES (1, 'Sourabh', 21);
-        3. Copy whole all column of another table : INSERT INTO customers1 TABLE customers2
+Row CRUD
+---------
+    1. Create
+        - With column name    : INSERT INTO customers(id, name, age) VALUES (1, 'Sourabh', 21), ...;
+        - Without column name : INSERT INTO customers VALUES (1, 'Sourabh', 21), ...;
 
-    2. INSERT INTO ...SELECT
-        - It is used to add new rows of data into a table in the database after populating select query
-        1. Copy specific column of another table  : INSERT INTO customers1(id, name) SELECT id, name FROM customers2
-        2. Copy whole all column of another table : INSERT INTO customers1 SELECT * FROM customers2
-
-    3. SELECT
-        - The SQL SELECT Statement is used to fetch data from a database table, returning the result in the form of a table (result-set).
-        1. Specific columns : SELECT id, name, salary FROM customers;
-        2. All columns      : SELECT * FROM customers;
-
-    4. SELECT INTO
-        - The SQL SELECT INTO Statement creates a new table and inserts data from an existing table into the newly created table.
-        1. Copying all columns      : SELECT * INTO CUSTOMER_BACKUP FROM CUSTOMERS;
-        2. Copying specific columns : SELECT name, age, address INTO CUSTOMER_DETAILS FROM CUSTOMERS;
+    2. Read
+        - You can select specifie columns using(their name) instead of selecting all rows using(*)
+        - Specific : SELECT * FROM customers WHERE fname = "Farjana";
+        - All : SELECT * FROM customers 
 
     5. UPDATE
-        - The SQL UPDATE statement is utilized to modify existing records in a table. 
-        1. Update one record       : UPDATE customers SET id = 2 WHERE id = 1;
-        2. Update multiple records : UPDATE customers SET state = 'UP' WHERE state = 'MP';
-        2. Update all records      : UPDATE customers SET age = 20
+        - Specific : UPDATE customers SET fname = "Vishakha" WHERE faname = "Farjana";
+        - All      : UPDATE customers SET fname = "Vishakha"
 
-    6. DELETE 
-        - The SQL DELETE statement is used to delete one or more than one or all records from table
-        1. Delete one record       : DELETE FROM customers WHERE id = 1;
-        2. Delete multiple records : DELETE FROM customers WHERE state = 'MP';
-        3. Delete all records      : DELETE FROM customers
+    6. Delete
+        - Specific : DELETE FROM customers WHERE fname = "Sourabh";
+        - All rows : DELETE FROM customers 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
 

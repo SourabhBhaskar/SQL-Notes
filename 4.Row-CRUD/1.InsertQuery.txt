@@ -21,3 +21,4 @@ SQL INSERT INTO Statement
         - Ensure data types match the columns.
         - If a column is defined as NOT NULL, provide a value for it.
         - These statements provide flexibility in inserting data from one table into another based on specific requirements.
+        - Column count & type should be same as selecting field

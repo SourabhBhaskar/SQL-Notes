@@ -15,10 +15,6 @@ Table Creation Simplified
                 PRIMARY KEY (ID)
             );
 
-    * Verification
-        - You can use DESC table_name to view the table's structure
-            DESC CUSTOMERS;
-
     * CREATE TABLE IF NOT EXISTS
         - To avoid errors when trying to create a table that already exists, you can use the IF NOT EXISTS clause
             CREATE TABLE IF NOT EXISTS CUSTOMERS (

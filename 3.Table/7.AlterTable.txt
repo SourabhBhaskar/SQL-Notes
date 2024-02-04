@@ -41,7 +41,7 @@ ALTER TABLE
     
     * ALTER TABLE − ADD CONSTRAINT
         - Adds a unique constraint to a column.
-        -Syntax: ALTER TABLE table_name ADD CONSTRAINT constraint_name UNIQUE(column1, column2...);
+        - Syntax: ALTER TABLE table_name ADD CONSTRAINT constraint_name UNIQUE(column1, column2...);
         - ALTER TABLE EMPLOYEES ADD CONSTRAINT CONST UNIQUE(NAME);
     
     * ALTER TABLE − DROP CONSTRAINT
